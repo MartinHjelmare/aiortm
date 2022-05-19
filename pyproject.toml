@@ -22,6 +22,7 @@ version = "0.1.0"
 "Changelog" = "https://github.com/MartinHjelmare/aiortm/blob/main/CHANGELOG.md"
 
 [tool.poetry.dependencies]
+aiohttp = "^3.8"
 python = "^3.9"
 
 [tool.poetry.dev-dependencies]
