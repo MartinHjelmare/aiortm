@@ -3,9 +3,10 @@ from __future__ import annotations
 
 import hashlib
 from http import HTTPStatus
-from typing import Any
+from typing import Any, cast
 
 from aiohttp import ClientResponse, ClientResponseError, ClientSession
+from yarl import URL
 
 from .exceptions import (
     APIAuthError,
@@ -51,12 +52,33 @@ class Auth:
             headers=headers,
         )
 
+    async def authenticate_desktop(self) -> tuple[str, str]:
+        """Authenticate as a desktop application."""
+        data = await self.call_api("rtm.auth.getFrob", api_key=self.api_key)
+        frob: str = data["frob"]
+        url = self.generate_authorize_url(
+            api_key=self.api_key, perms=self.permission, frob=frob
+        )
+        return url, frob
+
+    def generate_authorize_url(self, **params: Any) -> str:
+        """Generate a URL for authorization."""
+        all_params = params | {"api_sig": self._sign_request(params)}
+        return str(URL(AUTH_URL).with_query(all_params))
+
+    async def get_token(self, frob: str) -> dict[str, Any]:
+        """Fetch the authentication token with the frob."""
+        data = await self.call_api("rtm.auth.getToken", api_key=self.api_key, frob=frob)
+        auth_data: dict[str, Any] = data["auth"]
+        self.auth_token = cast(str, auth_data["token"])
+        return auth_data
+
     async def check_token(self) -> bool:
         """Check if auth token is valid."""
         if self.auth_token is None:
             return False
         try:
-            await self._call_api(
+            await self.call_api(
                 "rtm.auth.checkToken", api_key=self.api_key, auth_token=self.auth_token
             )
         except APIAuthError:
@@ -64,18 +86,18 @@ class Auth:
 
         return True
 
-    async def _call_api_auth(self, api_method: str, **params: Any) -> dict[str, Any]:
+    async def call_api_auth(self, api_method: str, **params: Any) -> dict[str, Any]:
         """Call an api method that requires authentication."""
         if self.auth_token is None:
             raise RuntimeError("Missing authentication token.")
-        all_params = {"api_key": self.api_key, "auth_token": self.auth_token, **params}
-        return await self._call_api(api_method, **all_params)
+        all_params = {"api_key": self.api_key, "auth_token": self.auth_token} | params
+        return await self.call_api(api_method, **all_params)
 
-    async def _call_api(self, api_method: str, **params: Any) -> dict[str, Any]:
+    async def call_api(self, api_method: str, **params: Any) -> dict[str, Any]:
         """Call an api method."""
-        params |= {"format": "json"}
-        params |= {"api_sig": self._sign_request(params)}
-        response = await self.request(REST_URL, method=api_method, **params)
+        all_params = params | {"format": "json"}
+        all_params |= {"api_sig": self._sign_request(all_params)}
+        response = await self.request(REST_URL, method=api_method, **all_params)
 
         try:
             response.raise_for_status()
