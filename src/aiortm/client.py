@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import hashlib
+import json
+import logging
 from http import HTTPStatus
 from typing import Any, cast
 
@@ -17,6 +19,7 @@ from .exceptions import (
 
 AUTH_URL = "https://www.rememberthemilk.com/services/auth/"
 REST_URL = "https://api.rememberthemilk.com/services/rest/"
+_LOGGER = logging.getLogger(__package__)
 
 
 class Auth:
@@ -95,9 +98,9 @@ class Auth:
 
     async def call_api(self, api_method: str, **params: Any) -> dict[str, Any]:
         """Call an api method."""
-        all_params = params | {"format": "json"}
+        all_params = {"method": api_method} | params | {"format": "json"}
         all_params |= {"api_sig": self._sign_request(all_params)}
-        response = await self.request(REST_URL, method=api_method, **all_params)
+        response = await self.request(REST_URL, params=all_params)
 
         try:
             response.raise_for_status()
@@ -106,7 +109,14 @@ class Auth:
                 raise TransportAuthError(err) from err
             raise TransportResponseError(err) from err
 
-        data: dict[str, Any] = (await response.json())["rsp"]
+        response_text = await response.text()
+
+        if "rtm.auth" not in api_method:
+            _LOGGER.debug("Response text: %s", response_text)
+
+        # API doesn't return a JSON encoded response.
+        # It's text/javascript mimetype but with a JSON string in the text.
+        data: dict[str, Any] = json.loads(response_text)["rsp"]
 
         if data["stat"] == "fail":
             code = data["err"]["code"]
