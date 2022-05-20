@@ -1,0 +1,14 @@
+{
+  "rsp": {
+    "stat": "ok",
+    "transaction": {
+      "id": "12450053965",
+      "undoable": "0"
+    },
+    "contact": {
+      "id": "1",
+      "fullname": "John Smith",
+      "username": "john"
+    }
+  }
+}

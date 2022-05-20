@@ -21,8 +21,8 @@ class APIResponseError(ResponseError):
 
     def __init__(self, code: int, msg: str, *args: Any) -> None:
         """Set up the instance."""
-        super().__init__(*args, msg)
-        self.code = int
+        super().__init__(msg, *args)
+        self.code = code
         self.msg = msg
 
 
@@ -31,7 +31,7 @@ class TransportResponseError(ResponseError):
 
     def __init__(self, client_error: ClientResponseError, *args: Any) -> None:
         """Set up the instance."""
-        super().__init__(*args, client_error)
+        super().__init__(client_error, *args)
         self.client_error = client_error
 
 

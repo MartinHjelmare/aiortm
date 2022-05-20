@@ -16,6 +16,8 @@ from .exceptions import (
     TransportAuthError,
     TransportResponseError,
 )
+from .model import RTM
+from .model.response import BaseErrorResponse
 
 AUTH_URL = "https://www.rememberthemilk.com/services/auth/"
 REST_URL = "https://api.rememberthemilk.com/services/rest/"
@@ -31,7 +33,7 @@ class Auth:
         api_key: str,
         shared_secret: str,
         auth_token: str | None = None,
-        permission: str = "write",
+        permission: str = "delete",
     ) -> None:
         """Set up the auth manager."""
         self._client_session = client_session
@@ -116,10 +118,11 @@ class Auth:
         data: dict[str, Any] = json.loads(response_text)["rsp"]
 
         if data["stat"] == "fail":
-            code = data["err"]["code"]
-            if 98 >= code <= 100:
-                raise APIAuthError(code, data["err"]["msg"])
-            raise APIResponseError(code, data["err"]["msg"])
+            error_response = BaseErrorResponse(**data)
+            code = error_response.err.code
+            if 98 <= code <= 100:
+                raise APIAuthError(code, error_response.err.msg)
+            raise APIResponseError(code, error_response.err.msg)
         return data
 
     def _sign_request(self, params: dict[str, Any]) -> str:
@@ -140,4 +143,4 @@ class AioRTMClient:
         auth: Auth,
     ) -> None:
         """Set up the client instance."""
-        self.auth = auth
+        self.rtm = RTM(auth)

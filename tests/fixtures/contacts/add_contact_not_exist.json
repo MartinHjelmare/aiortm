@@ -1,0 +1,9 @@
+{
+  "rsp": {
+    "stat": "fail",
+    "err": {
+      "code": "1020",
+      "msg": "Contact requested does not exist."
+    }
+  }
+}

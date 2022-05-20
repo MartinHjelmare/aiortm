@@ -32,14 +32,24 @@ def check_token(api_key: str, secret: str, token: str) -> None:
     run_app(check_auth_token, api_key, secret, token=token)
 
 
-@click.command(options_metavar="<options>")
+@click.command(
+    options_metavar="<options>",
+    context_settings={
+        "ignore_unknown_options": True,
+        "allow_extra_args": True,
+    },
+)
 @click.option("-k", "--api-key", required=True, help="API key.")
 @click.option("-s", "--secret", required=True, help="Shared secret.")
 @click.option("-t", "--token", required=True, help="Authentication token.")
 @click.argument("method")
-def api_method(api_key: str, secret: str, token: str, method: str) -> None:
+@click.pass_context
+def api_method(
+    ctx: click.Context, api_key: str, secret: str, token: str, method: str
+) -> None:
     """Run an arbitrary API method."""
-    run_app(run_method, api_key, secret, token=token, method=method)
+    method_params = dict([item.strip("--").split("=") for item in ctx.args])
+    run_app(run_method, api_key, secret, token=token, method=method, **method_params)
 
 
 def run_app(
@@ -96,7 +106,11 @@ async def check_auth_token(
 
 
 async def run_method(
-    api_key: str, secret: str, token: str, method: str, **kwargs: Any
+    api_key: str,
+    secret: str,
+    token: str,
+    method: str,
+    **params: Any,
 ) -> None:
     """Run an API method."""
     async with aiohttp.ClientSession() as session:
@@ -107,6 +121,6 @@ async def run_method(
             auth_token=token,
         )
 
-        result = await auth.call_api_auth(method)
+        result = await auth.call_api_auth(method, **params)
 
         click.echo(f"Method result: {result}")

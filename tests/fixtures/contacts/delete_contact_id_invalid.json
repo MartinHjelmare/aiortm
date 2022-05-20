@@ -1,0 +1,6 @@
+{
+  "rsp": {
+    "stat": "fail",
+    "err": { "code": "360", "msg": "contact_id invalid or not provided" }
+  }
+}

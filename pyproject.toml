@@ -31,10 +31,12 @@ aiortm = 'aiortm.cli:cli'
 [tool.poetry.dependencies]
 aiohttp = "^3.8"
 click = "^8.1"
+pydantic = "^1.9"
 python = "^3.9"
 yarl = "^1.7"
 
 [tool.poetry.dev-dependencies]
+aioresponses = "^0.7.3"
 bandit = "^1.7"
 black = "^22.1"
 flake8 = "^6.0"
@@ -45,6 +47,7 @@ pre-commit = "^2.20.0"
 pylint = "^2.14.5"
 pylint-strict-informational = "^0.1"
 pytest = "^7.0"
+pytest-aiohttp = "^1.0.4"
 pytest-cov = "^4.0"
 pyupgrade = "^3.0"
 
@@ -82,6 +85,9 @@ exclude = [
 ]
 mypy_path = "src/"
 no_implicit_optional = true
+plugins = [
+  "pydantic.mypy",
+]
 show_error_codes = true
 warn_incomplete_stub = true
 warn_redundant_casts = true

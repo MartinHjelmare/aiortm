@@ -1,0 +1,49 @@
+{
+  "rsp": {
+    "stat": "ok",
+    "tasks": {
+      "rev": "6aaqnvl16qankjtznzdj2452usgniqo",
+      "list": [
+        {
+          "id": "48730705",
+          "taskseries": [
+            {
+              "id": "475830808",
+              "created": "2022-05-18T14:27:08Z",
+              "modified": "2022-05-18T14:27:55Z",
+              "name": "Register for RTM",
+              "source": "js",
+              "url": "",
+              "location_id": "",
+              "tags": [],
+              "participants": [],
+              "notes": [],
+              "task": [
+                {
+                  "id": "878061281",
+                  "due": "",
+                  "has_due_time": "0",
+                  "added": "2022-05-18T14:27:08Z",
+                  "completed": "2022-05-18T14:27:55Z",
+                  "deleted": "",
+                  "priority": "N",
+                  "postponed": "0",
+                  "estimate": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "48730706"
+        },
+        {
+          "id": "48730707"
+        },
+        {
+          "id": "48730708"
+        }
+      ]
+    }
+  }
+}
