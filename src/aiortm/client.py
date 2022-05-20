@@ -81,9 +81,7 @@ class Auth:
         if self.auth_token is None:
             return False
         try:
-            await self.call_api(
-                "rtm.auth.checkToken", api_key=self.api_key, auth_token=self.auth_token
-            )
+            await self.call_api_auth("rtm.auth.checkToken")
         except APIAuthError:
             return False
 

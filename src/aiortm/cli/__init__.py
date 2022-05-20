@@ -4,7 +4,7 @@ import logging
 import click
 
 from .. import __version__
-from .app import authorize, check_token
+from .app import authorize, check_token, method
 
 SETTINGS = {"help_option_names": ["-h", "--help"]}
 
@@ -24,3 +24,4 @@ def cli(debug: bool) -> None:
 
 cli.add_command(authorize)
 cli.add_command(check_token)
+cli.add_command(method)
