@@ -6,6 +6,8 @@ default_stages: [commit]
 ci:
   autofix_commit_msg: "chore(pre-commit.ci): auto fixes"
   autoupdate_commit_msg: "chore(pre-commit.ci): pre-commit autoupdate"
+  skip:
+    - pylint
 
 repos:
   - repo: https://github.com/commitizen-tools/commitizen
@@ -65,3 +67,10 @@ repos:
     hooks:
       - id: bandit
         args: [-x, tests]
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]

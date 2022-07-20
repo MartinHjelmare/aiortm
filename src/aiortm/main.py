@@ -1,6 +1,6 @@
 """Provide a main module."""
 
 
-def add(n1: int, n2: int) -> int:
+def add(n_1: int, n_2: int) -> int:
     """Provide a dummy function."""
-    return n1 + n2
+    return n_1 + n_2
