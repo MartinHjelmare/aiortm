@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.0.2
-      - uses: actions/setup-python@v3.0.0
+      - uses: actions/setup-python@v3.1.2
         with:
           python-version: "3.9"
       - uses: pre-commit/action@v2.0.3
@@ -46,7 +46,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3.0.2
       - name: Set up Python
-        uses: actions/setup-python@v3.0.0
+        uses: actions/setup-python@v3.1.2
         with:
           python-version: ${{ matrix.python-version }}
       - uses: snok/install-poetry@v1.3.1
