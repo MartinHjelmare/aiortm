@@ -18,12 +18,12 @@ jobs:
       - uses: actions/setup-python@v3.1.2
         with:
           python-version: "3.9"
-      - uses: snok/install-poetry@v1.3.1
-      - name: Install Dependencies
-        run: poetry install
       - uses: pre-commit/action@v2.0.3
         env:
           SKIP: pylint
+      - uses: snok/install-poetry@v1.3.1
+      - name: Install Dependencies
+        run: poetry install
       - name: Lint with pylint
         run: poetry run pre-commit run pylint --all-files
 
