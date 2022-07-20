@@ -65,3 +65,10 @@ repos:
     hooks:
       - id: bandit
         args: [-x, tests]
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
