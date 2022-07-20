@@ -4,7 +4,7 @@ from __future__ import annotations
 import asyncio
 import logging
 import webbrowser
-from collections.abc import Awaitable, Callable
+from collections.abc import Callable, Coroutine
 from typing import Any
 
 import aiohttp
@@ -37,13 +37,13 @@ def check_token(api_key: str, secret: str, token: str) -> None:
 @click.option("-s", "--secret", required=True, help="Shared secret.")
 @click.option("-t", "--token", required=True, help="Authentication token.")
 @click.argument("method")
-def method(api_key: str, secret: str, token: str, method: str) -> None:
+def api_method(api_key: str, secret: str, token: str, method: str) -> None:
     """Run an arbitrary API method."""
-    run_app(run_method, api_key, secret, token=token, api_method=method)
+    run_app(run_method, api_key, secret, token=token, method=method)
 
 
 def run_app(
-    command: Callable[..., Awaitable[None]],
+    command: Callable[..., Coroutine[Any, Any, None]],
     api_key: str,
     secret: str,
     **kwargs: Any,
@@ -96,7 +96,7 @@ async def check_auth_token(
 
 
 async def run_method(
-    api_key: str, secret: str, token: str, api_method: str, **kwargs: Any
+    api_key: str, secret: str, token: str, method: str, **kwargs: Any
 ) -> None:
     """Run an API method."""
     async with aiohttp.ClientSession() as session:
@@ -107,6 +107,6 @@ async def run_method(
             auth_token=token,
         )
 
-        result = await auth.call_api_auth(api_method)
+        result = await auth.call_api_auth(method)
 
         click.echo(f"Method result: {result}")

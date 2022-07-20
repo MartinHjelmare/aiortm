@@ -42,9 +42,8 @@ class Auth:
 
     async def request(self, url: str, **kwargs: Any) -> ClientResponse:
         """Make a request."""
-        headers: dict[str, Any] | None = kwargs.get("headers")
-
-        if headers is None:
+        headers: dict[str, Any] | None
+        if (headers := kwargs.get("headers")) is None:
             headers = {}
         else:
             headers = dict(headers)
