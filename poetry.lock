@@ -436,6 +436,20 @@ spelling = ["pyenchant (>=3.2,<4.0)"]
 testutils = ["gitpython (>3)"]
 
 [[package]]
+name = "pylint-strict-informational"
+version = "0.1"
+description = "A pylint plugin to make pylint fail on informational messages"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+pylint = "*"
+
+[package.extras]
+dev = ["isort", "black", "check-manifest", "zest.releaser"]
+
+[[package]]
 name = "pyparsing"
 version = "3.0.9"
 description = "pyparsing module - Classes and methods to define and execute parsing grammars"
@@ -639,7 +653,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "a268a911a57a3b564f50693b3b4e0755d69e2360e90bc817be9f9bf3b73758a2"
+content-hash = "8d832667a62f2435e753d01c941be606b038fc9ad6e293feb9170caf9c689898"
 
 [metadata.files]
 aiohttp = [
@@ -978,6 +992,7 @@ pyflakes = [
     {file = "pyflakes-2.4.0.tar.gz", hash = "sha256:05a85c2872edf37a4ed30b0cce2f6093e1d0581f8c19d7393122da7e25b2b24c"},
 ]
 pylint = []
+pylint-strict-informational = []
 pyparsing = [
     {file = "pyparsing-3.0.9-py3-none-any.whl", hash = "sha256:5026bae9a10eeaefb61dab2f09052b9f4307d44aee4eda64b309723d8d206bbc"},
     {file = "pyparsing-3.0.9.tar.gz", hash = "sha256:2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"},

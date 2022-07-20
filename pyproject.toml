@@ -38,10 +38,64 @@ flake8-docstrings = "^1.6"
 isort = "^5.10"
 mypy = "^0.971"
 pylint = "^2.14.5"
+pylint-strict-informational = "^0.1"
 pytest = "^7.0"
 pytest-cov = "^3.0"
 pyupgrade = "^2.29"
 tox = "^3.20"
+
+[tool.pylint.MAIN]
+extension-pkg-allow-list = [
+  "pydantic",
+]
+fail-on = [
+  "I",
+]
+ignore = []
+init-hook = """\
+    from pathlib import Path; \
+    import sys; \
+
+    from pylint.config import find_default_config_files; \
+
+    sys.path.append( \
+        str(Path(next(find_default_config_files())).parent.joinpath('pylint/plugins'))
+    ) \
+    """
+jobs = 2
+load-plugins = [
+  "pylint.extensions.code_style",
+  "pylint.extensions.typing",
+  "pylint_strict_informational",
+]
+persistent = false
+py-version = "3.9"
+score = false
+
+[tool.pylint.DESIGN]
+max-args = 7
+
+[tool.pylint.FORMAT]
+expected-line-ending-format = "LF"
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = [
+  "format",
+  "duplicate-code",
+  "locally-disabled",
+  "too-few-public-methods",
+  "unused-argument",
+]
+enable = [
+  "useless-suppression",
+  "use-symbolic-message-instead",
+]
+
+[tool.pylint.CODE_STYLE]
+max-line-length-suggestions = 88
+
+[tool.pylint.TYPING]
+runtime-typing = false
 
 [tool.semantic_release]
 branch = "main"
