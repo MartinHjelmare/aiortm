@@ -105,6 +105,7 @@ version_variable = "src/aiortm/__init__.py:__version__"
 
 [tool.pytest.ini_options]
 addopts = "-v -Wdefault --cov=aiortm --cov-report=term-missing:skip-covered"
+asyncio_mode = "auto"
 pythonpath = ["src"]
 
 [tool.coverage.run]
