@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.1 (2022-07-24)
+### Fix
+* Bump elekang/python-semantic-release to v7.29.7 ([#27](https://github.com/MartinHjelmare/aiortm/issues/27)) ([`e23d059`](https://github.com/MartinHjelmare/aiortm/commit/e23d059bde9c4d1825ae5c4d7e0acaa1426eecc6))
+
+### Documentation
+* Remove contributors section ([#21](https://github.com/MartinHjelmare/aiortm/issues/21)) ([`bbc385e`](https://github.com/MartinHjelmare/aiortm/commit/bbc385eb52aec686b5a1556ed7aaeb1e54af0631))
+
 ## v0.3.0 (2022-07-20)
 ### Feature
 * Add cli command to run any api method ([`f488c4a`](https://github.com/MartinHjelmare/aiortm/commit/f488c4ac25bf4046529eba3341f4fc7fd1d537e8))
