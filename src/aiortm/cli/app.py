@@ -2,10 +2,10 @@
 from __future__ import annotations
 
 import asyncio
-import logging
-import webbrowser
 from collections.abc import Callable, Coroutine
+import logging
 from typing import Any
+import webbrowser
 
 import aiohttp
 import click

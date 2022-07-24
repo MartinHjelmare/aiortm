@@ -2,9 +2,9 @@
 from __future__ import annotations
 
 import hashlib
+from http import HTTPStatus
 import json
 import logging
-from http import HTTPStatus
 from typing import Any, cast
 
 from aiohttp import ClientResponse, ClientResponseError, ClientSession
