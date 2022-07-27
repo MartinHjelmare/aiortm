@@ -75,6 +75,7 @@ profile = "black"
 check_untyped_defs = true
 disallow_any_generics = true
 disallow_incomplete_defs = true
+disallow_untyped_calls = true
 disallow_untyped_defs = true
 exclude = [
   'setup.py',
@@ -82,7 +83,11 @@ exclude = [
 mypy_path = "src/"
 no_implicit_optional = true
 show_error_codes = true
+warn_incomplete_stub = true
+warn_redundant_casts = true
+warn_return_any = true
 warn_unreachable = true
+warn_unused_configs = true
 warn_unused_ignores = true
 
 [[tool.mypy.overrides]]
