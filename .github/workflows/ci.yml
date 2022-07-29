@@ -16,11 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.0.2
+      - uses: snok/install-poetry@v1.3.1
       - uses: actions/setup-python@v4.1.0
         with:
           python-version: "3.9"
           cache: "poetry"
-      - uses: snok/install-poetry@v1.3.1
       - name: Install Dependencies
         run: poetry install
       - name: Run all pre-commit hooks
@@ -51,12 +51,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3.0.2
+      - uses: snok/install-poetry@v1.3.1
       - name: Set up Python
         uses: actions/setup-python@v4.1.0
         with:
           python-version: ${{ matrix.python-version }}
           cache: "poetry"
-      - uses: snok/install-poetry@v1.3.1
       - name: Install Dependencies
         run: poetry install
       - name: Test with Pytest
