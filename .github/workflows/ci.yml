@@ -7,10 +7,6 @@ on:
       - "renovate/**"
   pull_request:
 
-concurrency:
-  group: ${{ github.head_ref || github.run_id }}
-  cancel-in-progress: true
-
 jobs:
   psr-ci:
     uses: MartinHjelmare/github-actions-workflows/.github/workflows/psr-ci.yml@main
