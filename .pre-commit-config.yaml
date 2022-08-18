@@ -53,6 +53,11 @@ repos:
     rev: v2.2.0
     hooks:
       - id: codespell
+        exclude: |
+          (?x)^(
+              LICENSE|
+              tests/fixtures/.*
+          )$
   - repo: https://github.com/PyCQA/flake8
     rev: 5.0.4
     hooks:
