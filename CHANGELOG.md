@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.0 (2023-01-01)
+### Feature
+* Add contacts model ([#59](https://github.com/MartinHjelmare/aiortm/issues/59)) ([`54e3144`](https://github.com/MartinHjelmare/aiortm/commit/54e31441c4b5b09e84f470f77d1c41f515c0f220))
+* Add contacts model ([#59](https://github.com/MartinHjelmare/aiortm/issues/59)) ([`9cd8273`](https://github.com/MartinHjelmare/aiortm/commit/9cd8273103ecc713b7997ac93818b2162be11ef7))
+
 ## v0.3.1 (2022-07-24)
 ### Fix
 * Bump elekang/python-semantic-release to v7.29.7 ([#27](https://github.com/MartinHjelmare/aiortm/issues/27)) ([`e23d059`](https://github.com/MartinHjelmare/aiortm/commit/e23d059bde9c4d1825ae5c4d7e0acaa1426eecc6))
