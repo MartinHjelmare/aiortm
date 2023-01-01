@@ -1,0 +1,9 @@
+{
+  "rsp": {
+    "stat": "fail",
+    "err": {
+      "code": "99",
+      "msg": "User not logged in / Insufficient permissions"
+    }
+  }
+}

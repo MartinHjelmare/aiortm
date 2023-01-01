@@ -1,0 +1,6 @@
+{
+  "rsp": {
+    "stat": "fail",
+    "err": { "code": "300", "msg": "Timeline invalid or not provided" }
+  }
+}
