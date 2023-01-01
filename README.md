@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/MartinHjelmare/aiortm/actions?query=workflow%3ACI">
-    <img src="https://img.shields.io/github/workflow/status/MartinHjelmare/aiortm/CI/main?label=CI&logo=github&style=flat-square" alt="CI Status" >
+    <img src="https://img.shields.io/github/actions/workflow/status/MartinHjelmare/aiortm/ci.yml?branch=main&label=CI&logo=github&style=flat-square" alt="CI Status" >
   </a>
   <a href="https://codecov.io/gh/MartinHjelmare/aiortm">
     <img src="https://img.shields.io/codecov/c/github/MartinHjelmare/aiortm.svg?logo=codecov&logoColor=fff&style=flat-square" alt="Test coverage percentage">
