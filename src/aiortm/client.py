@@ -97,6 +97,8 @@ class Auth:
 
     async def call_api(self, api_method: str, **params: Any) -> dict[str, Any]:
         """Call an api method."""
+        # Remove empty values.
+        params = {key: value for key, value in params.items() if value is not None}
         all_params = {"method": api_method} | params | {"format": "json"}
         all_params |= {"api_sig": self._sign_request(all_params)}
         response = await self.request(REST_URL, params=all_params)
@@ -111,7 +113,10 @@ class Auth:
         response_text = await response.text()
 
         if "rtm.auth" not in api_method:
-            _LOGGER.debug("Response text: %s", response_text)
+            logged_response_text = response_text
+            if self.api_key in response_text:
+                logged_response_text = response_text.replace(self.api_key, "API_KEY")
+            _LOGGER.debug("Response text: %s", logged_response_text)
 
         # API doesn't return a JSON encoded response.
         # It's text/javascript mimetype but with a JSON string in the text.

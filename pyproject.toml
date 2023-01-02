@@ -154,7 +154,7 @@ max-line-length-suggestions = 88
 runtime-typing = false
 
 [tool.pytest.ini_options]
-addopts = "-v -Wdefault --cov=aiortm --cov-report=term-missing:skip-covered"
+addopts = "-Wdefault --cov=aiortm --cov-report=term-missing:skip-covered"
 asyncio_mode = "auto"
 pythonpath = ["src"]
 
