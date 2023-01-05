@@ -151,3 +151,17 @@ class Tasks:
             "rtm.tasks.getList", list_id=list_id, last_sync=last_sync_string
         )
         return TasksResponse(**result)
+
+    async def set_name(
+        self, timeline: int, list_id: int, taskseries_id: int, task_id: int, name: str
+    ) -> TaskModifiedResponse:
+        """Rename a task."""
+        result = await self.api.call_api_auth(
+            "rtm.tasks.setName",
+            timeline=timeline,
+            list_id=list_id,
+            taskseries_id=taskseries_id,
+            task_id=task_id,
+            name=name,
+        )
+        return TaskModifiedResponse(**result)

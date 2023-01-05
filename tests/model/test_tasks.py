@@ -15,8 +15,14 @@ from ..util import load_fixture
 
 @pytest.fixture(name="tasks_add", scope="session")
 def tasks_add_fixture() -> str:
-    """Return a response for rtm.tasks.getList."""
+    """Return a response for rtm.tasks.add."""
     return load_fixture("tasks/add.json")
+
+
+@pytest.fixture(name="tasks_set_name", scope="session")
+def tasks_set_name_fixture() -> str:
+    """Return a response for rtm.tasks.setName."""
+    return load_fixture("tasks/set_name.json")
 
 
 @pytest.fixture(name="response")
@@ -211,3 +217,62 @@ async def test_tasks_get_list(
     assert result.tasks.task_list[0].taskseries[0].task[
         0
     ].added == datetime.fromisoformat("2023-01-02T01:55:25+00:00")
+
+
+async def test_tasks_set_name(
+    client: AioRTMClient,
+    mock_response: aioresponses,
+    timelines_create: str,
+    generate_url: Callable[..., str],
+    tasks_set_name: str,
+) -> None:
+    """Test tasks set name."""
+    mock_response.get(
+        generate_url(
+            api_key="test-api-key",
+            auth_token="test-token",
+            method="rtm.timelines.create",
+        ),
+        body=timelines_create,
+    )
+    mock_response.get(
+        generate_url(
+            api_key="test-api-key",
+            auth_token="test-token",
+            method="rtm.tasks.setName",
+            timeline=1234567890,
+            list_id=48730705,
+            taskseries_id=493427774,
+            task_id=925539907,
+            name="Renamed task",
+        ),
+        body=tasks_set_name,
+    )
+
+    timeline_response = await client.rtm.timelines.create()
+    timeline = timeline_response.timeline
+    result = await client.rtm.tasks.set_name(
+        timeline=timeline,
+        list_id=48730705,
+        taskseries_id=493427774,
+        task_id=925539907,
+        name="Renamed task",
+    )
+
+    assert result.stat == "ok"
+    assert result.transaction.id == 12476388930
+    assert result.transaction.undoable == 1
+    assert result.task_list.id == 48730705
+    assert result.task_list.taskseries[0].id == 493427774
+    assert result.task_list.taskseries[0].created == datetime.fromisoformat(
+        "2023-01-05T01:39:14+00:00"
+    )
+    assert result.task_list.taskseries[0].modified == datetime.fromisoformat(
+        "2023-01-05T01:42:01+00:00"
+    )
+    assert result.task_list.taskseries[0].name == "Renamed task"
+    assert result.task_list.taskseries[0].source == "api:test-api-key"
+    assert result.task_list.taskseries[0].task[0].id == 925539907
+    assert result.task_list.taskseries[0].task[0].added == datetime.fromisoformat(
+        "2023-01-05T01:39:14+00:00"
+    )
