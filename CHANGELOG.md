@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.6.0 (2023-01-05)
+### Feature
+* Add tasks set name ([#64](https://github.com/MartinHjelmare/aiortm/issues/64)) ([`43bf55e`](https://github.com/MartinHjelmare/aiortm/commit/43bf55e5543e9909c5551fc0a3b469ebaaffdaf9))
+
 ## v0.5.0 (2023-01-05)
 ### Feature
 * Add tasks model foundation ([#62](https://github.com/MartinHjelmare/aiortm/issues/62)) ([`a469860`](https://github.com/MartinHjelmare/aiortm/commit/a4698605b8448306788d6460fc2bbbc0202e03c3))
