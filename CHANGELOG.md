@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.5.0 (2023-01-05)
+### Feature
+* Add tasks model foundation ([#62](https://github.com/MartinHjelmare/aiortm/issues/62)) ([`a469860`](https://github.com/MartinHjelmare/aiortm/commit/a4698605b8448306788d6460fc2bbbc0202e03c3))
+
 ## v0.4.0 (2023-01-01)
 ### Feature
 * Add contacts model ([#59](https://github.com/MartinHjelmare/aiortm/issues/59)) ([`54e3144`](https://github.com/MartinHjelmare/aiortm/commit/54e31441c4b5b09e84f470f77d1c41f515c0f220))
