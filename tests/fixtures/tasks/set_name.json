@@ -1,0 +1,36 @@
+{
+  "rsp": {
+    "stat": "ok",
+    "transaction": { "id": "12476388930", "undoable": "1" },
+    "list": {
+      "id": "48730705",
+      "taskseries": [
+        {
+          "id": "493427774",
+          "created": "2023-01-05T01:39:14Z",
+          "modified": "2023-01-05T01:42:01Z",
+          "name": "Renamed task",
+          "source": "api:test-api-key",
+          "url": "",
+          "location_id": "",
+          "tags": [],
+          "participants": [],
+          "notes": [],
+          "task": [
+            {
+              "id": "925539907",
+              "due": "",
+              "has_due_time": "0",
+              "added": "2023-01-05T01:39:14Z",
+              "completed": "",
+              "deleted": "",
+              "priority": "N",
+              "postponed": "0",
+              "estimate": ""
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
