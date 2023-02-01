@@ -38,7 +38,7 @@ yarl = "^1.7"
 [tool.poetry.dev-dependencies]
 aioresponses = "^0.7.3"
 bandit = "^1.7"
-black = "^22.1"
+black = "^23.1"
 flake8 = "^6.0"
 flake8-docstrings = "^1.6"
 isort = "^5.10"
