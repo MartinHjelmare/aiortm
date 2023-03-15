@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.6.1 (2023-03-15)
+### Fix
+* **deps:** Update dependency aiohttp to v3.8.4 ([`2e51dea`](https://github.com/MartinHjelmare/aiortm/commit/2e51dea02cce04d03beb692fb89225d8f631b0c7))
+
 ## v0.6.0 (2023-01-05)
 ### Feature
 * Add tasks set name ([#64](https://github.com/MartinHjelmare/aiortm/issues/64)) ([`43bf55e`](https://github.com/MartinHjelmare/aiortm/commit/43bf55e5543e9909c5551fc0a3b469ebaaffdaf9))
