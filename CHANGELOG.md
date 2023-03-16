@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.6.2 (2023-03-16)
+### Fix
+* **deps:** Update dependency pydantic to v1.10.6 ([`3f2efa9`](https://github.com/MartinHjelmare/aiortm/commit/3f2efa9ffb7d5047a5486431d40575ae7025ce82))
+
 ## v0.6.1 (2023-03-15)
 ### Fix
 * **deps:** Update dependency aiohttp to v3.8.4 ([`2e51dea`](https://github.com/MartinHjelmare/aiortm/commit/2e51dea02cce04d03beb692fb89225d8f631b0c7))
