@@ -57,6 +57,7 @@ repos:
         exclude: |
           (?x)^(
               LICENSE|
+              poetry.lock|
               tests/fixtures/.*
           )$
   - repo: https://github.com/PyCQA/flake8
