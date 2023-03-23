@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.6.3 (2023-03-23)
+### Fix
+* **deps:** Update dependency pydantic to v1.10.7 ([`1b02f21`](https://github.com/MartinHjelmare/aiortm/commit/1b02f21189d5fad0d56c4223b4e96c8aa85a9ced))
+
 ## v0.6.2 (2023-03-16)
 ### Fix
 * **deps:** Update dependency pydantic to v1.10.6 ([`3f2efa9`](https://github.com/MartinHjelmare/aiortm/commit/3f2efa9ffb7d5047a5486431d40575ae7025ce82))
