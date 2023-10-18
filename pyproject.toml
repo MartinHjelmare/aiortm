@@ -159,7 +159,16 @@ asyncio_mode = "auto"
 pythonpath = ["src"]
 
 [tool.semantic_release]
-branch = "main"
 build_command = "pip install poetry && poetry build"
-version_toml = "pyproject.toml:tool.poetry.version"
-version_variable = "src/aiortm/__init__.py:__version__"
+major_on_zero = false
+version_toml = ["pyproject.toml:tool.poetry.version"]
+version_variables = [
+  "src/aiortm/__init__.py:__version__",
+]
+
+[tool.semantic_release.changelog]
+exclude_commit_patterns = [
+  "^chore.*",
+  "^ci.*",
+  "^Bump.*",
+]
