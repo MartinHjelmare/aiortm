@@ -2,6 +2,13 @@
 
 
 
+## v0.8.0 (2023-11-05)
+
+### Feature
+
+* feat: export common names (#88) ([`1895e29`](https://github.com/MartinHjelmare/aiortm/commit/1895e29d29289785d4965c087a21f46501506e37))
+
+
 ## v0.7.0 (2023-11-05)
 
 ### Feature
