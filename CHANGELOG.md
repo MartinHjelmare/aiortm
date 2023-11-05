@@ -2,6 +2,13 @@
 
 
 
+## v0.7.0 (2023-11-05)
+
+### Feature
+
+* feat: replace pydantic with mashumaro (#87) ([`89b51ba`](https://github.com/MartinHjelmare/aiortm/commit/89b51ba83dcfa87cb7545a6e4e4cfd2e1e65a926))
+
+
 ## v0.6.4 (2023-10-18)
 
 ### Fix
