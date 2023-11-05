@@ -30,7 +30,7 @@ aiortm = 'aiortm.cli:cli'
 
 [tool.poetry.dependencies]
 aiohttp = "^3.8"
-ciso8601 = "^2.3.1"
+ciso8601 = "^2.3"
 click = "^8.1"
 mashumaro = "^3.10"
 python = "^3.9"
