@@ -8,6 +8,7 @@ if TYPE_CHECKING:
     from ..client import Auth
 
 
+@dataclass
 class TimelineResponse(BaseResponse):
     """Represent a response for a timeline."""
 
@@ -23,4 +24,4 @@ class Timelines:
     async def create(self) -> TimelineResponse:
         """Create a timeline."""
         result = await self.api.call_api_auth("rtm.timelines.create")
-        return TimelineResponse(**result)
+        return TimelineResponse.from_dict(result)

@@ -123,7 +123,7 @@ class Auth:
         data: dict[str, Any] = json.loads(response_text)["rsp"]
 
         if data["stat"] == "fail":
-            error_response = BaseErrorResponse(**data)
+            error_response = BaseErrorResponse.from_dict(data)
             code = error_response.err.code
             if 98 <= code <= 100:
                 raise APIAuthError(code, error_response.err.msg)

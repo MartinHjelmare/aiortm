@@ -1,22 +1,26 @@
 """Provide a base response model."""
+from dataclasses import dataclass
 from typing import Literal
 
-from pydantic import BaseModel
+from mashumaro.mixins.json import DataClassJSONMixin
 
 
-class BaseResponse(BaseModel):
+@dataclass
+class BaseResponse(DataClassJSONMixin):
     """Represent a base response."""
 
     stat: Literal["ok", "fail"]
 
 
-class ErrorResponse(BaseModel):
+@dataclass
+class ErrorResponse(DataClassJSONMixin):
     """Represent the error response."""
 
     code: int
     msg: str
 
 
+@dataclass
 class BaseErrorResponse(BaseResponse):
     """Represent a base error response."""
 
@@ -24,7 +28,8 @@ class BaseErrorResponse(BaseResponse):
     err: ErrorResponse
 
 
-class TransactionResponse(BaseModel):
+@dataclass
+class TransactionResponse(DataClassJSONMixin):
     """Represent a transaction response."""
 
     id: int
