@@ -30,8 +30,9 @@ aiortm = 'aiortm.cli:cli'
 
 [tool.poetry.dependencies]
 aiohttp = "^3.8"
+ciso8601 = "^2.3.1"
 click = "^8.1"
-pydantic = "^1.9"
+mashumaro = "^3.10"
 python = "^3.9"
 yarl = "^1.7"
 
@@ -85,9 +86,6 @@ exclude = [
 ]
 mypy_path = "src/"
 no_implicit_optional = true
-plugins = [
-  "pydantic.mypy",
-]
 show_error_codes = true
 warn_incomplete_stub = true
 warn_redundant_casts = true
@@ -101,9 +99,6 @@ allow_untyped_defs = true
 module = "tests.*"
 
 [tool.pylint.MAIN]
-extension-pkg-allow-list = [
-  "pydantic",
-]
 fail-on = [
   "I",
 ]
@@ -130,6 +125,7 @@ score = false
 
 [tool.pylint.DESIGN]
 max-args = 7
+max-attributes = 12
 
 [tool.pylint.FORMAT]
 expected-line-ending-format = "LF"

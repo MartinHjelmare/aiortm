@@ -1,11 +1,12 @@
 """Provide a model for tasks."""
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
 from typing import TYPE_CHECKING, Any, Literal, Optional
 
-from pydantic import BaseModel as PydanticBaseModel, Field, validator
+from mashumaro import field_options
+from mashumaro.mixins.json import DataClassJSONMixin
 
 from .response import BaseResponse, TransactionResponse
 
@@ -15,79 +16,96 @@ if TYPE_CHECKING:
 # pylint: disable=consider-alternative-union-syntax
 
 
-class BaseModel(PydanticBaseModel):
+@dataclass
+class BaseModel(DataClassJSONMixin):
     """Represent a base model that turns empty string to None."""
 
-    @validator("*", pre=True)
-    def empty_str_to_none(cls, value: Any) -> Any:  # pylint: disable=no-self-argument
+    @classmethod
+    def __pre_deserialize__(cls, d: dict[Any, Any]) -> dict[Any, Any]:
         """Turn empty string to None."""
-        if value == "":
-            return None
-        return value
+        for k, v in d.items():
+            if v == "":
+                d[k] = None
+            elif isinstance(v, list):
+                d[k] = [cls.__pre_deserialize__(i) for i in v]
+            elif isinstance(v, dict):
+                d[k] = cls.__pre_deserialize__(v)
+        return d
 
 
+@dataclass
 class TaskResponse(BaseModel):
     """Represent a response for a task."""
 
     id: int
-    due: Optional[datetime]
     has_due_time: bool
-    added: datetime
-    completed: Optional[datetime]
-    deleted: Optional[datetime]
+    added: datetime = field(metadata={"deserialize": "ciso8601"})
     priority: Literal["N", "1", "2", "3"]
     postponed: bool
-    estimate: Optional[str]
+    due: Optional[datetime] = field(metadata={"deserialize": "ciso8601"}, default=None)
+    completed: Optional[datetime] = field(
+        metadata={"deserialize": "ciso8601"}, default=None
+    )
+    deleted: Optional[datetime] = field(
+        metadata={"deserialize": "ciso8601"}, default=None
+    )
+    estimate: Optional[str] = None
 
 
+@dataclass
 class TaskSeriesResponse(BaseModel):
     """Represent a response for a task series."""
 
     id: int
-    created: datetime
-    modified: datetime
+    created: datetime = field(metadata={"deserialize": "ciso8601"})
+    modified: datetime = field(metadata={"deserialize": "ciso8601"})
     name: str
     source: str
-    location_id: Optional[str]
-    url: Optional[str]
     tags: list[str]
     participants: list[str]
     notes: list[str]
     task: list[TaskResponse]
+    location_id: Optional[str] = None
+    url: Optional[str] = None
 
 
+@dataclass
 class TaskListResponse(BaseModel):
     """Represent a response for a task list."""
 
     id: int
     taskseries: list[TaskSeriesResponse]
-    current: Optional[datetime]
+    current: Optional[datetime] = field(
+        metadata={"deserialize": "ciso8601"}, default=None
+    )
 
 
+@dataclass
 class RootTaskResponse(BaseModel):
     """Represent a response for the root tasks object."""
 
     rev: str
-    task_list: list[TaskListResponse] = Field(..., alias="list")
+    task_list: list[TaskListResponse] = field(metadata=field_options(alias="list"))
 
-    @validator("task_list", pre=True)
-    def ensure_taskseries(  # pylint: disable=no-self-argument
-        cls, value: list[dict[str, Any]]
-    ) -> list[dict[str, Any]]:
+    @classmethod
+    def __pre_deserialize__(cls, d: dict[Any, Any]) -> dict[Any, Any]:
         """Ensure that taskseries exist."""
-        for item in value:
+        task_list = d["list"]
+        for item in task_list:
             if "taskseries" not in item:
                 item["taskseries"] = []
-        return value
+        return d
 
 
+@dataclass
 class TaskModifiedResponse(BaseResponse):
     """Represent a response for a modified task."""
 
     transaction: TransactionResponse
-    task_list: TaskListResponse = Field(..., alias="list")
+    task_list: TaskListResponse = field(metadata=field_options(alias="list"))
 
 
+@dataclass
 class TasksResponse(BaseResponse):
     """Represent a response for a list of tasks."""
 
@@ -111,7 +129,7 @@ class Tasks:
         result = await self.api.call_api_auth(
             "rtm.tasks.add", timeline=timeline, name=name, list_id=list_id, parse=parse
         )
-        return TaskModifiedResponse(**result)
+        return TaskModifiedResponse.from_dict(result)
 
     async def complete(
         self, timeline: int, list_id: int, taskseries_id: int, task_id: int
@@ -124,7 +142,7 @@ class Tasks:
             taskseries_id=taskseries_id,
             task_id=task_id,
         )
-        return TaskModifiedResponse(**result)
+        return TaskModifiedResponse.from_dict(result)
 
     async def delete(
         self, timeline: int, list_id: int, taskseries_id: int, task_id: int
@@ -137,7 +155,7 @@ class Tasks:
             taskseries_id=taskseries_id,
             task_id=task_id,
         )
-        return TaskModifiedResponse(**result)
+        return TaskModifiedResponse.from_dict(result)
 
     async def get_list(
         self, list_id: int | None = None, last_sync: datetime | None = None
@@ -150,7 +168,7 @@ class Tasks:
         result = await self.api.call_api_auth(
             "rtm.tasks.getList", list_id=list_id, last_sync=last_sync_string
         )
-        return TasksResponse(**result)
+        return TasksResponse.from_dict(result)
 
     async def set_name(
         self, timeline: int, list_id: int, taskseries_id: int, task_id: int, name: str
@@ -164,4 +182,4 @@ class Tasks:
             task_id=task_id,
             name=name,
         )
-        return TaskModifiedResponse(**result)
+        return TaskModifiedResponse.from_dict(result)
