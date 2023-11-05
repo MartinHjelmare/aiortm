@@ -2,6 +2,13 @@
 
 
 
+## v0.8.1 (2023-11-05)
+
+### Fix
+
+* fix: unpin ciso8601 (#89) ([`1881504`](https://github.com/MartinHjelmare/aiortm/commit/1881504514883c1b39a72e8a4afee8127b98f37d))
+
+
 ## v0.8.0 (2023-11-05)
 
 ### Feature
