@@ -2,6 +2,13 @@
 
 
 
+## v0.8.2 (2023-11-07)
+
+### Fix
+
+* fix: use correct task parse parameter (#90) ([`fde09af`](https://github.com/MartinHjelmare/aiortm/commit/fde09afe8b36074f198bb1c322670a73184967d4))
+
+
 ## v0.8.1 (2023-11-05)
 
 ### Fix
