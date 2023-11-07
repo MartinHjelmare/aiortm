@@ -127,7 +127,11 @@ class Tasks:
     ) -> TaskModifiedResponse:
         """Add a task."""
         result = await self.api.call_api_auth(
-            "rtm.tasks.add", timeline=timeline, name=name, list_id=list_id, parse=parse
+            "rtm.tasks.add",
+            timeline=timeline,
+            name=name,
+            list_id=list_id,
+            parse="1" if parse else None,
         )
         return TaskModifiedResponse.from_dict(result)
 
