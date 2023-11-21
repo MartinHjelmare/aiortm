@@ -2,6 +2,13 @@
 
 
 
+## v0.8.4 (2023-11-21)
+
+### Fix
+
+* fix(deps): update dependency yarl to v1.9.3 ([`fe85f9f`](https://github.com/MartinHjelmare/aiortm/commit/fe85f9f3270314e2446825729b922894a91e7b31))
+
+
 ## v0.8.3 (2023-11-20)
 
 ### Fix
