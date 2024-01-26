@@ -1,4 +1,5 @@
 """Provide a model for the RTM API."""
+
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING
 

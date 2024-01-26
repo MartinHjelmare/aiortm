@@ -1,4 +1,5 @@
 """Provide exceptions raised by aiortm."""
+
 from typing import Any
 
 from aiohttp import ClientResponseError

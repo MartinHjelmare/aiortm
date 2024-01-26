@@ -1,4 +1,5 @@
 """Provide common pytest fixtures."""
+
 from collections.abc import AsyncGenerator, Callable, Generator
 import logging
 from typing import Any

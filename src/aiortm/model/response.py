@@ -1,4 +1,5 @@
 """Provide a base response model."""
+
 from dataclasses import dataclass
 from typing import Literal
 

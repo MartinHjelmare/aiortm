@@ -1,4 +1,5 @@
 """Provide a model for timelines."""
+
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
