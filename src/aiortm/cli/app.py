@@ -1,4 +1,5 @@
 """Provide an application to run the client."""
+
 from __future__ import annotations
 
 import asyncio

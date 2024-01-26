@@ -1,4 +1,5 @@
 """Provide a CLI for aiortm."""
+
 import logging
 
 import click

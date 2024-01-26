@@ -1,4 +1,5 @@
 """Provide a client for aiortm."""
+
 from __future__ import annotations
 
 import hashlib
