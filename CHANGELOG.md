@@ -2,6 +2,13 @@
 
 
 
+## v0.8.8 (2024-01-28)
+
+### Fix
+
+* fix(deps): update dependency mashumaro to v3.12 ([`86d05e2`](https://github.com/MartinHjelmare/aiortm/commit/86d05e270615322ce7dc16081b65131e92cc11e1))
+
+
 ## v0.8.7 (2023-12-06)
 
 ### Fix

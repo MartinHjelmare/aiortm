@@ -19,7 +19,7 @@ packages = [
 ]
 readme = "README.md"
 repository = "https://github.com/MartinHjelmare/aiortm"
-version = "0.8.7"
+version = "0.8.8"
 
 [tool.poetry.scripts]
 aiortm = 'aiortm.cli:cli'
