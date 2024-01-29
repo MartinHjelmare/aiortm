@@ -2,6 +2,13 @@
 
 
 
+## v0.8.9 (2024-01-29)
+
+### Fix
+
+* fix(deps): update dependency aiohttp to v3.9.2 ([`b8e0755`](https://github.com/MartinHjelmare/aiortm/commit/b8e0755498f7ee128cd7bf17aa0d8688c328a5fe))
+
+
 ## v0.8.8 (2024-01-28)
 
 ### Fix
