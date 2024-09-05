@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.8.26 (2024-09-05)
+
+### Fix
+
+* fix(deps): update dependency yarl to v1.9.11 ([`01df052`](https://github.com/MartinHjelmare/aiortm/commit/01df052aa8559aa85421472b6a14a9b250aa356b))
+
 ## v0.8.25 (2024-09-04)
 
 ### Fix
