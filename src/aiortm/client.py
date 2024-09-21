@@ -43,13 +43,10 @@ class Auth:
         self.api_key = api_key
         self._shared_secret = shared_secret
 
-    async def request(self, url: str, **kwargs: Any) -> ClientResponse:
+    async def request(self, url: str, **kwargs: Any) -> ClientResponse:  # noqa: ANN401
         """Make a request."""
         headers: dict[str, Any] | None
-        if (headers := kwargs.get("headers")) is None:
-            headers = {}
-        else:
-            headers = dict(headers)
+        headers = {} if (headers := kwargs.get("headers")) is None else dict(headers)
 
         return await self._client_session.get(
             url,
@@ -62,12 +59,19 @@ class Auth:
         data = await self.call_api("rtm.auth.getFrob", api_key=self.api_key)
         frob: str = data["frob"]
         url = self.generate_authorize_url(
-            api_key=self.api_key, perms=self.permission, frob=frob
+            api_key=self.api_key,
+            perms=self.permission,
+            frob=frob,
         )
         return url, frob
 
-    def generate_authorize_url(self, **params: Any) -> str:
+    def generate_authorize_url(self, api_key: str, perms: str, frob: str) -> str:
         """Generate a URL for authorization."""
+        params = {
+            "api_key": api_key,
+            "perms": perms,
+            "frob": frob,
+        }
         all_params = params | {"api_sig": self._sign_request(params)}
         return str(URL(AUTH_URL).with_query(all_params))
 
@@ -89,14 +93,14 @@ class Auth:
 
         return True
 
-    async def call_api_auth(self, api_method: str, **params: Any) -> dict[str, Any]:
+    async def call_api_auth(self, api_method: str, **params: Any) -> dict[str, Any]:  # noqa: ANN401
         """Call an api method that requires authentication."""
         if self.auth_token is None:
             raise RuntimeError("Missing authentication token.")
         all_params = {"api_key": self.api_key, "auth_token": self.auth_token} | params
         return await self.call_api(api_method, **all_params)
 
-    async def call_api(self, api_method: str, **params: Any) -> dict[str, Any]:
+    async def call_api(self, api_method: str, **params: Any) -> dict[str, Any]:  # noqa: ANN401
         """Call an api method."""
         # Remove empty values.
         params = {key: value for key, value in params.items() if value is not None}
@@ -138,7 +142,7 @@ class Auth:
             f"{key}{val}" for key, val in sorted_params.items() if val is not None
         )
         data = f"{self._shared_secret}{param_string}".encode()
-        return hashlib.md5(data).hexdigest()  # nosec
+        return hashlib.md5(data).hexdigest()  # noqa: S324
 
 
 class AioRTMClient:

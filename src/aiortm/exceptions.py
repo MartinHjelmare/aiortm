@@ -20,7 +20,7 @@ class AuthError(ResponseError):
 class APIResponseError(ResponseError):
     """Represent a bad response."""
 
-    def __init__(self, code: int, msg: str, *args: Any) -> None:
+    def __init__(self, code: int, msg: str, *args: Any) -> None:  # noqa: ANN401
         """Set up the instance."""
         super().__init__(msg, *args)
         self.code = code
@@ -30,7 +30,7 @@ class APIResponseError(ResponseError):
 class TransportResponseError(ResponseError):
     """Represent a bad response."""
 
-    def __init__(self, client_error: ClientResponseError, *args: Any) -> None:
+    def __init__(self, client_error: ClientResponseError, *args: Any) -> None:  # noqa: ANN401
         """Set up the instance."""
         super().__init__(client_error, *args)
         self.client_error = client_error

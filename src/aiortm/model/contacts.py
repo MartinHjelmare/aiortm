@@ -10,7 +10,7 @@ from mashumaro.mixins.json import DataClassJSONMixin
 from .response import BaseResponse, TransactionResponse
 
 if TYPE_CHECKING:
-    from ..client import Auth
+    from aiortm.client import Auth
 
 
 @dataclass
@@ -62,14 +62,18 @@ class Contacts:
     async def add(self, timeline: int, contact: str) -> ContactAddResponse:
         """Add a contact."""
         result = await self.api.call_api_auth(
-            "rtm.contacts.add", timeline=timeline, contact=contact
+            "rtm.contacts.add",
+            timeline=timeline,
+            contact=contact,
         )
         return ContactAddResponse.from_dict(result)
 
     async def delete(self, timeline: int, contact_id: int) -> ContactDeleteResponse:
         """Delete a contact."""
         result = await self.api.call_api_auth(
-            "rtm.contacts.delete", timeline=timeline, contact_id=contact_id
+            "rtm.contacts.delete",
+            timeline=timeline,
+            contact_id=contact_id,
         )
         return ContactDeleteResponse.from_dict(result)
 
