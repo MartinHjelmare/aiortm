@@ -10,8 +10,7 @@ from aioresponses import aioresponses
 import pytest
 
 from aiortm.client import AioRTMClient
-
-from ..util import load_fixture
+from tests.util import load_fixture
 
 
 @pytest.fixture(name="tasks_add", scope="session")
@@ -69,21 +68,21 @@ async def test_tasks_add(
     assert result.task_list.id == 48730705
     assert result.task_list.taskseries[0].id == 493137362
     assert result.task_list.taskseries[0].created == datetime.fromisoformat(
-        "2023-01-02T01:55:25+00:00"
+        "2023-01-02T01:55:25+00:00",
     )
     assert result.task_list.taskseries[0].modified == datetime.fromisoformat(
-        "2023-01-02T01:55:25+00:00"
+        "2023-01-02T01:55:25+00:00",
     )
     assert result.task_list.taskseries[0].name == "Test task"
     assert result.task_list.taskseries[0].source == "api:test-api-key"
     assert result.task_list.taskseries[0].task[0].id == 924832826
     assert result.task_list.taskseries[0].task[0].added == datetime.fromisoformat(
-        "2023-01-02T01:55:25+00:00"
+        "2023-01-02T01:55:25+00:00",
     )
 
 
 @pytest.mark.parametrize(
-    "method, transaction, modified, deleted, response",
+    ("method", "transaction", "modified", "deleted", "response"),
     [
         (
             "complete",
@@ -114,7 +113,6 @@ async def test_tasks_complete_delete(
     response: str,
 ) -> None:
     """Test tasks complete and delete."""
-    # pylint: disable=too-many-arguments
     mock_response.get(
         generate_url(
             api_key="test-api-key",
@@ -140,7 +138,10 @@ async def test_tasks_complete_delete(
     timeline = timeline_response.timeline
     method_object = getattr(client.rtm.tasks, method)
     result = await method_object(
-        timeline=timeline, list_id=48730705, taskseries_id=493137362, task_id=924832826
+        timeline=timeline,
+        list_id=48730705,
+        taskseries_id=493137362,
+        task_id=924832826,
     )
 
     assert result.stat == "ok"
@@ -149,20 +150,20 @@ async def test_tasks_complete_delete(
     assert result.task_list.id == 48730705
     assert result.task_list.taskseries[0].id == 493137362
     assert result.task_list.taskseries[0].created == datetime.fromisoformat(
-        "2023-01-02T01:55:25+00:00"
+        "2023-01-02T01:55:25+00:00",
     )
     assert result.task_list.taskseries[0].modified == modified
     assert result.task_list.taskseries[0].name == "Test task"
     assert result.task_list.taskseries[0].source == "api:test-api-key"
     assert result.task_list.taskseries[0].task[0].id == 924832826
     assert result.task_list.taskseries[0].task[0].completed == datetime.fromisoformat(
-        "2023-01-05T00:04:52+00:00"
+        "2023-01-05T00:04:52+00:00",
     )
     assert result.task_list.taskseries[0].task[0].deleted == deleted
 
 
 @pytest.mark.parametrize(
-    "response, response_params, method_params, current",
+    ("response", "response_params", "method_params", "current"),
     [
         (
             "tasks/get_list.json",
@@ -207,10 +208,10 @@ async def test_tasks_get_list(
     assert result.tasks.task_list[0].current == current
     assert result.tasks.task_list[0].taskseries[0].id == 493137362
     assert result.tasks.task_list[0].taskseries[0].created == datetime.fromisoformat(
-        "2023-01-02T01:55:25+00:00"
+        "2023-01-02T01:55:25+00:00",
     )
     assert result.tasks.task_list[0].taskseries[0].modified == datetime.fromisoformat(
-        "2023-01-02T01:55:25+00:00"
+        "2023-01-02T01:55:25+00:00",
     )
     assert result.tasks.task_list[0].taskseries[0].name == "Test task"
     assert result.tasks.task_list[0].taskseries[0].source == "api:test-api-key"
@@ -266,14 +267,14 @@ async def test_tasks_set_name(
     assert result.task_list.id == 48730705
     assert result.task_list.taskseries[0].id == 493427774
     assert result.task_list.taskseries[0].created == datetime.fromisoformat(
-        "2023-01-05T01:39:14+00:00"
+        "2023-01-05T01:39:14+00:00",
     )
     assert result.task_list.taskseries[0].modified == datetime.fromisoformat(
-        "2023-01-05T01:42:01+00:00"
+        "2023-01-05T01:42:01+00:00",
     )
     assert result.task_list.taskseries[0].name == "Renamed task"
     assert result.task_list.taskseries[0].source == "api:test-api-key"
     assert result.task_list.taskseries[0].task[0].id == 925539907
     assert result.task_list.taskseries[0].task[0].added == datetime.fromisoformat(
-        "2023-01-05T01:39:14+00:00"
+        "2023-01-05T01:39:14+00:00",
     )

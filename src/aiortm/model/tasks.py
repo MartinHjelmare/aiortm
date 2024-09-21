@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import TYPE_CHECKING, Any, Literal, Optional
+from typing import TYPE_CHECKING, Any, Literal
 
 from mashumaro import field_options
 from mashumaro.mixins.json import DataClassJSONMixin
@@ -12,9 +12,7 @@ from mashumaro.mixins.json import DataClassJSONMixin
 from .response import BaseResponse, TransactionResponse
 
 if TYPE_CHECKING:
-    from ..client import Auth
-
-# pylint: disable=consider-alternative-union-syntax
+    from aiortm.client import Auth
 
 
 @dataclass
@@ -43,14 +41,16 @@ class TaskResponse(BaseModel):
     added: datetime = field(metadata={"deserialize": "ciso8601"})
     priority: Literal["N", "1", "2", "3"]
     postponed: bool
-    due: Optional[datetime] = field(metadata={"deserialize": "ciso8601"}, default=None)
-    completed: Optional[datetime] = field(
-        metadata={"deserialize": "ciso8601"}, default=None
+    due: datetime | None = field(metadata={"deserialize": "ciso8601"}, default=None)
+    completed: datetime | None = field(
+        metadata={"deserialize": "ciso8601"},
+        default=None,
     )
-    deleted: Optional[datetime] = field(
-        metadata={"deserialize": "ciso8601"}, default=None
+    deleted: datetime | None = field(
+        metadata={"deserialize": "ciso8601"},
+        default=None,
     )
-    estimate: Optional[str] = None
+    estimate: str | None = None
 
 
 @dataclass
@@ -66,8 +66,8 @@ class TaskSeriesResponse(BaseModel):
     participants: list[str]
     notes: list[str]
     task: list[TaskResponse]
-    location_id: Optional[str] = None
-    url: Optional[str] = None
+    location_id: str | None = None
+    url: str | None = None
 
 
 @dataclass
@@ -76,8 +76,9 @@ class TaskListResponse(BaseModel):
 
     id: int
     taskseries: list[TaskSeriesResponse]
-    current: Optional[datetime] = field(
-        metadata={"deserialize": "ciso8601"}, default=None
+    current: datetime | None = field(
+        metadata={"deserialize": "ciso8601"},
+        default=None,
     )
 
 
@@ -137,7 +138,11 @@ class Tasks:
         return TaskModifiedResponse.from_dict(result)
 
     async def complete(
-        self, timeline: int, list_id: int, taskseries_id: int, task_id: int
+        self,
+        timeline: int,
+        list_id: int,
+        taskseries_id: int,
+        task_id: int,
     ) -> TaskModifiedResponse:
         """Complete a task."""
         result = await self.api.call_api_auth(
@@ -150,7 +155,11 @@ class Tasks:
         return TaskModifiedResponse.from_dict(result)
 
     async def delete(
-        self, timeline: int, list_id: int, taskseries_id: int, task_id: int
+        self,
+        timeline: int,
+        list_id: int,
+        taskseries_id: int,
+        task_id: int,
     ) -> TaskModifiedResponse:
         """Delete a task."""
         result = await self.api.call_api_auth(
@@ -163,7 +172,9 @@ class Tasks:
         return TaskModifiedResponse.from_dict(result)
 
     async def get_list(
-        self, list_id: int | None = None, last_sync: datetime | None = None
+        self,
+        list_id: int | None = None,
+        last_sync: datetime | None = None,
     ) -> TasksResponse:
         """Get a list of tasks."""
         last_sync_string: str | None = None
@@ -171,12 +182,19 @@ class Tasks:
             last_sync_string = last_sync.isoformat()
 
         result = await self.api.call_api_auth(
-            "rtm.tasks.getList", list_id=list_id, last_sync=last_sync_string
+            "rtm.tasks.getList",
+            list_id=list_id,
+            last_sync=last_sync_string,
         )
         return TasksResponse.from_dict(result)
 
     async def set_name(
-        self, timeline: int, list_id: int, taskseries_id: int, task_id: int, name: str
+        self,
+        timeline: int,
+        list_id: int,
+        taskseries_id: int,
+        task_id: int,
+        name: str,
     ) -> TaskModifiedResponse:
         """Rename a task."""
         result = await self.api.call_api_auth(

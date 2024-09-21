@@ -44,7 +44,7 @@ def client_fixture(session: ClientSession) -> AioRTMClient:
             shared_secret="test-shared-secret",
             auth_token="test-token",
             permission="delete",
-        )
+        ),
     )
 
 
@@ -52,9 +52,8 @@ def client_fixture(session: ClientSession) -> AioRTMClient:
 def generate_url(client: AioRTMClient) -> Callable[..., str]:
     """Generate a URL from params."""
 
-    def generate_url_(**params: Any) -> str:
+    def generate_url_(**params: Any) -> str:  # noqa: ANN401
         all_params = params | {"format": "json"}
-        # pylint: disable-next=protected-access
         all_params |= {"api_sig": client.rtm.api._sign_request(all_params)}
         return str(URL(REST_URL).with_query(all_params))
 

@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 from .response import BaseResponse
 
 if TYPE_CHECKING:
-    from ..client import Auth
+    from aiortm.client import Auth
 
 
 @dataclass

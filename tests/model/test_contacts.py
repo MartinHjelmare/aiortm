@@ -10,8 +10,7 @@ import pytest
 
 from aiortm.client import AioRTMClient
 from aiortm.exceptions import APIResponseError
-
-from ..util import load_fixture
+from tests.util import load_fixture
 
 
 @pytest.fixture(name="contacts_add", scope="session")
@@ -80,7 +79,8 @@ async def test_contacts_add(
     timeline_response = await client.rtm.timelines.create()
     timeline = timeline_response.timeline
     contact_add_response = await client.rtm.contacts.add(
-        timeline=timeline, contact="john"
+        timeline=timeline,
+        contact="john",
     )
 
     assert contact_add_response.stat == "ok"
@@ -203,7 +203,8 @@ async def test_contacts_delete(
     timeline_response = await client.rtm.timelines.create()
     timeline = timeline_response.timeline
     contact_delete_response = await client.rtm.contacts.delete(
-        timeline=timeline, contact_id=1234567
+        timeline=timeline,
+        contact_id=1234567,
     )
 
     assert contact_delete_response.stat == "ok"
@@ -248,7 +249,7 @@ async def test_contacts_delete_invalid_contact_id(
 
 
 @pytest.mark.parametrize(
-    "method, method_params",
+    ("method", "method_params"),
     [("add", {"contact": "john"}), ("delete", {"contact_id": 1234567})],
 )
 async def test_contacts_invalid_timeline(
@@ -280,8 +281,8 @@ async def test_contacts_invalid_timeline(
         body=timelines_invalid,
     )
 
+    method_object = getattr(client.rtm.contacts, method)
     with pytest.raises(APIResponseError) as err:
-        method_object = getattr(client.rtm.contacts, method)
         await method_object(timeline=0, **method_params)
 
     assert str(err.value) == "Timeline invalid or not provided"

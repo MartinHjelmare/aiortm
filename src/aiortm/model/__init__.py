@@ -8,7 +8,7 @@ from .tasks import Tasks
 from .timelines import Timelines
 
 if TYPE_CHECKING:
-    from ..client import Auth
+    from aiortm.client import Auth
 
 
 @dataclass
