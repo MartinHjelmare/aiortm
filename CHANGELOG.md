@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.9.3 (2024-09-25)
+
+### Fix
+
+* Update dependency aiohttp to v3.10.6 ([`14a2696`](https://github.com/MartinHjelmare/aiortm/commit/14a26965fffaaa505d31fb3d63d1f760f067e883))
+
 ## v0.9.2 (2024-09-24)
 
 ### Fix
