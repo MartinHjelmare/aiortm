@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.9.9 (2024-10-04)
+
+### Fix
+
+* Update dependency rich to v13.9.2 ([`ffe7b64`](https://github.com/MartinHjelmare/aiortm/commit/ffe7b6460e370a5a9df7251c654694f4f5a694d8))
+
 ## v0.9.8 (2024-10-01)
 
 ### Fix
