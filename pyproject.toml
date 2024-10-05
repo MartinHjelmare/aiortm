@@ -41,7 +41,7 @@ yarl = "^1.7"
 [tool.poetry.group.dev.dependencies]
 aioresponses = "^0.7.3"
 mypy = "^1.0"
-pre-commit = "^3.0.0"
+pre-commit = "^4.0.0"
 pytest = "^8.0.0"
 pytest-aiohttp = "^1.0.4"
 pytest-cov = "^5.0.0"
