@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.9.12 (2024-10-11)
+
+### Fixes
+
+* Update dependency aiohttp to v3.10.10 ([`c5d563d`](https://github.com/MartinHjelmare/aiortm/commit/c5d563da079fda06cc8905955a7902892e471100))
+
+### Chores
+
+* Update python-semantic-release/python-semantic-release action to v9.10.1 ([`cdfcec7`](https://github.com/MartinHjelmare/aiortm/commit/cdfcec7fec56394fbb0fb587b376d4ab3613772e))
+* Update dependency pre-commit to v4.0.1 ([`2ab7df1`](https://github.com/MartinHjelmare/aiortm/commit/2ab7df10b28b4dd30a1de4b13454ce26654a8fed))
+
 ## v0.9.11 (2024-10-08)
 
 ### Fixes
