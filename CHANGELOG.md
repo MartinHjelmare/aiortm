@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.9.13 (2024-10-12)
+
+### Fixes
+
+* Update dependency yarl to v1.15.0 ([`4240f11`](https://github.com/MartinHjelmare/aiortm/commit/4240f11779b86e47506939623ca3b85fd8ba001f))
+
+### Chores
+
+* Update pre-commit hook tox-dev/pyproject-fmt to v2.3.0 ([`f023d0e`](https://github.com/MartinHjelmare/aiortm/commit/f023d0eb60dc586aa6930207d7f414783ec861eb))
+
 ## v0.9.12 (2024-10-11)
 
 ### Fixes
