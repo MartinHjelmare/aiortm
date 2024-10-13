@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.9.15 (2024-10-13)
+
+### Fixes
+
+* Update dependency yarl to v1.15.2 ([`049ae15`](https://github.com/MartinHjelmare/aiortm/commit/049ae15398eb701a974477e221a9ddc87f84d807))
+
+### Chores
+
+* Update python-semantic-release/python-semantic-release action to v9.11.0 ([`706cb47`](https://github.com/MartinHjelmare/aiortm/commit/706cb47efb1c1ce78bf5fc0421fc39311600471c))
+
 ## v0.9.14 (2024-10-13)
 
 ### Fixes
