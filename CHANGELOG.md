@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.9.16 (2024-10-16)
+
+### Fixes
+
+* Update dependency yarl to v1.15.3 ([`058b430`](https://github.com/MartinHjelmare/aiortm/commit/058b430147e2cc8054d3d50aacbc2c9f4242adcf))
+
+### Chores
+
+* Update python-semantic-release/python-semantic-release action to v9.11.1 (#109) ([`215b04f`](https://github.com/MartinHjelmare/aiortm/commit/215b04f250b7f8cbfc6f195ce7f6414be7fd8bc9))
+* Update dependency mypy to v1.12.0 ([`5043edd`](https://github.com/MartinHjelmare/aiortm/commit/5043eddeb6181e746b44db89c16930f772e9c04e))
+* Update pre-commit hook tox-dev/pyproject-fmt to v2.3.1 ([`03f5178`](https://github.com/MartinHjelmare/aiortm/commit/03f5178b248d6ee32c6da07fb2e25e559d7650d5))
+* Update pre-commit hook python-poetry/poetry to v1.8.4 ([`ac5754a`](https://github.com/MartinHjelmare/aiortm/commit/ac5754a9aae30c71276f0bc47a88040425bed174))
+
 ## v0.9.15 (2024-10-13)
 
 ### Fixes
