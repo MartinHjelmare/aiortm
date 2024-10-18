@@ -1,14 +1,26 @@
 # Changelog
 
+## v0.9.18 (2024-10-18)
+
+### Bug fixes
+
+* Update dependency yarl to v1.15.5 ([`6075294`](https://github.com/MartinHjelmare/aiortm/commit/607529403f9607833f450f9f1653de5dac67cbcb))
+
+### Chores
+
+* Update python-semantic-release/python-semantic-release action to v9.12.0 ([`accdce5`](https://github.com/MartinHjelmare/aiortm/commit/accdce5311dcfe13307e4c464d0c7be49e62e94a))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.7.0 ([`3090a42`](https://github.com/MartinHjelmare/aiortm/commit/3090a424c58b57790d6a6a85ba5bdcbb08dbd333))
+* Update pre-commit hook tox-dev/pyproject-fmt to v2.4.3 ([`48c755e`](https://github.com/MartinHjelmare/aiortm/commit/48c755e2213db450cf05e6f24902ec4977f771b5))
+
 ## v0.9.17 (2024-10-16)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.15.4 ([`0cd956e`](https://github.com/MartinHjelmare/aiortm/commit/0cd956ec75858580ac4b9a0875775998a4a9627e))
 
 ## v0.9.16 (2024-10-16)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.15.3 ([`058b430`](https://github.com/MartinHjelmare/aiortm/commit/058b430147e2cc8054d3d50aacbc2c9f4242adcf))
 
@@ -21,7 +33,7 @@
 
 ## v0.9.15 (2024-10-13)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.15.2 ([`049ae15`](https://github.com/MartinHjelmare/aiortm/commit/049ae15398eb701a974477e221a9ddc87f84d807))
 
@@ -31,13 +43,13 @@
 
 ## v0.9.14 (2024-10-13)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.15.1 ([`47fff68`](https://github.com/MartinHjelmare/aiortm/commit/47fff68d202a5768d37ec2afcdf00d1830c4ae0d))
 
 ## v0.9.13 (2024-10-12)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.15.0 ([`4240f11`](https://github.com/MartinHjelmare/aiortm/commit/4240f11779b86e47506939623ca3b85fd8ba001f))
 
@@ -47,7 +59,7 @@
 
 ## v0.9.12 (2024-10-11)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.10.10 ([`c5d563d`](https://github.com/MartinHjelmare/aiortm/commit/c5d563da079fda06cc8905955a7902892e471100))
 
@@ -58,7 +70,7 @@
 
 ## v0.9.11 (2024-10-08)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.14.0 ([`39888ed`](https://github.com/MartinHjelmare/aiortm/commit/39888ed617599b6ad40206e0916ba44fe63e3d8f))
 
@@ -70,7 +82,7 @@
 
 ## v0.9.10 (2024-10-04)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.10.9 ([`afc3447`](https://github.com/MartinHjelmare/aiortm/commit/afc3447f5238f2044d74f2d9462c8a0c7624fee7))
 
@@ -80,19 +92,19 @@
 
 ## v0.9.9 (2024-10-04)
 
-### Fixes
+### Bug fixes
 
 * Update dependency rich to v13.9.2 ([`ffe7b64`](https://github.com/MartinHjelmare/aiortm/commit/ffe7b6460e370a5a9df7251c654694f4f5a694d8))
 
 ## v0.9.8 (2024-10-01)
 
-### Fixes
+### Bug fixes
 
 * Update dependency rich to v13.9.0 ([`6ccc20c`](https://github.com/MartinHjelmare/aiortm/commit/6ccc20cbfa3815cc451846cde4c16fd78a82c2a6))
 
 ## v0.9.7 (2024-09-29)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.10.8 ([`fa1c3e6`](https://github.com/MartinHjelmare/aiortm/commit/fa1c3e67d664639600b227e5b9c8c275439f2c92))
 
@@ -102,13 +114,13 @@
 
 ## v0.9.6 (2024-09-28)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.13.1 ([`295bc14`](https://github.com/MartinHjelmare/aiortm/commit/295bc14c6ee589451adfc53f3e32017598b9c24e))
 
 ## v0.9.5 (2024-09-28)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.10.7 ([`ae43d45`](https://github.com/MartinHjelmare/aiortm/commit/ae43d45fcc360424596ae9c8eb9525c069f99f45))
 
@@ -118,7 +130,7 @@
 
 ## v0.9.4 (2024-09-27)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.13.0 ([`fcff65e`](https://github.com/MartinHjelmare/aiortm/commit/fcff65e0d7c724f0d8bcfd4bddf9d1bfac0ceb6a))
 
@@ -129,13 +141,13 @@
 
 ## v0.9.3 (2024-09-25)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.10.6 ([`14a2696`](https://github.com/MartinHjelmare/aiortm/commit/14a26965fffaaa505d31fb3d63d1f760f067e883))
 
 ## v0.9.2 (2024-09-24)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.12.1 ([`27d2e96`](https://github.com/MartinHjelmare/aiortm/commit/27d2e96abdb65f8296f65a28d97ae07262785afd))
 
@@ -145,7 +157,7 @@
 
 ## v0.9.1 (2024-09-21)
 
-### Fixes
+### Bug fixes
 
 * Update dependency typer to ^0.12.0 ([`e63eb17`](https://github.com/MartinHjelmare/aiortm/commit/e63eb17aaa65ca36fdd1583fe132839186b7d73b))
 
@@ -167,13 +179,13 @@
 
 ## v0.8.29 (2024-09-10)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.11.1 ([`17175b7`](https://github.com/MartinHjelmare/aiortm/commit/17175b76c934da85c1b3387ca13ffe557819eb85))
 
 ## v0.8.28 (2024-09-09)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.11.0 ([`63f35da`](https://github.com/MartinHjelmare/aiortm/commit/63f35dad7788fc941213e1ee41959c2acdc565c9))
 
@@ -183,31 +195,31 @@
 
 ## v0.8.27 (2024-09-07)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.10.0 ([`c473c42`](https://github.com/MartinHjelmare/aiortm/commit/c473c4297bf6503c7706863037bb4d1cf93a3f27))
 
 ## v0.8.26 (2024-09-05)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.9.11 ([`01df052`](https://github.com/MartinHjelmare/aiortm/commit/01df052aa8559aa85421472b6a14a9b250aa356b))
 
 ## v0.8.25 (2024-09-04)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.9.9 ([`9c1fa43`](https://github.com/MartinHjelmare/aiortm/commit/9c1fa4399be4896c6a0a066cc57a2a20db20c104))
 
 ## v0.8.24 (2024-09-04)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.9.8 ([`e757b27`](https://github.com/MartinHjelmare/aiortm/commit/e757b27f2ac49184b4ae74c83ed0d9c660ae3505))
 
 ## v0.8.23 (2024-09-02)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.9.7 ([`0208836`](https://github.com/MartinHjelmare/aiortm/commit/02088364066825a3d015752abb438c6a5bf0564f))
 
@@ -217,13 +229,13 @@
 
 ## v0.8.22 (2024-08-31)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.9.6 ([`b0ebab8`](https://github.com/MartinHjelmare/aiortm/commit/b0ebab80ea523a603fb3c06d0b5476eceb3da479))
 
 ## v0.8.21 (2024-08-31)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.9.5 ([`6c1bf8f`](https://github.com/MartinHjelmare/aiortm/commit/6c1bf8f041c45afe7adcac3f86b5c505104a6b5a))
 
@@ -234,13 +246,13 @@
 
 ## v0.8.20 (2024-08-20)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.10.5 ([`77bdb8a`](https://github.com/MartinHjelmare/aiortm/commit/77bdb8a6ae9662c02382083db7bec3a94762a381))
 
 ## v0.8.19 (2024-08-18)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.10.4 ([`e119d69`](https://github.com/MartinHjelmare/aiortm/commit/e119d69ddb21ffdb0bc2df62a02e9ba48016b847))
 
@@ -250,19 +262,19 @@
 
 ## v0.8.18 (2024-08-10)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.10.3 ([`0daf613`](https://github.com/MartinHjelmare/aiortm/commit/0daf613ccac7f4e72e38483f4cc7dffadc803e25))
 
 ## v0.8.17 (2024-08-08)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.10.2 ([`fd48468`](https://github.com/MartinHjelmare/aiortm/commit/fd48468776ef2461280e822640d189b86d0090dd))
 
 ## v0.8.16 (2024-08-05)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.10.1 ([`ea3f658`](https://github.com/MartinHjelmare/aiortm/commit/ea3f658aabbab5ea8fccce69c0fa32f3b0de0515))
 
@@ -276,7 +288,7 @@
 
 ## v0.8.15 (2024-07-31)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.10.0 ([`23d3314`](https://github.com/MartinHjelmare/aiortm/commit/23d331451959e4264adc471706202477550ad592))
 
@@ -300,7 +312,7 @@
 
 ## v0.8.14 (2024-06-15)
 
-### Fixes
+### Bug fixes
 
 * Update dependency mashumaro to v3.13.1 ([`b336f70`](https://github.com/MartinHjelmare/aiortm/commit/b336f705e6744487e8723821cbb4faed54975147))
 
@@ -328,7 +340,7 @@
 
 ## v0.8.13 (2024-04-30)
 
-### Fixes
+### Bug fixes
 
 * Update dependency mashumaro to v3.13 ([`c4b9b77`](https://github.com/MartinHjelmare/aiortm/commit/c4b9b77f6ced5e687046716ff1938c354839348c))
 
@@ -350,7 +362,7 @@
 
 ## v0.8.12 (2024-04-16)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.9.5 ([`738fc70`](https://github.com/MartinHjelmare/aiortm/commit/738fc700c61e852a52f3ef900037d0287671f86e))
 
@@ -361,7 +373,7 @@
 
 ## v0.8.11 (2024-04-11)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.9.4 ([`bbba061`](https://github.com/MartinHjelmare/aiortm/commit/bbba061ae7b837120616bc6e91d08167729c259d))
 
@@ -406,19 +418,19 @@
 
 ## v0.8.10 (2024-01-30)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.9.3 ([`4ca600f`](https://github.com/MartinHjelmare/aiortm/commit/4ca600f61357c7bf9dc99a0d084c9216aaae7b6f))
 
 ## v0.8.9 (2024-01-29)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.9.2 ([`b8e0755`](https://github.com/MartinHjelmare/aiortm/commit/b8e0755498f7ee128cd7bf17aa0d8688c328a5fe))
 
 ## v0.8.8 (2024-01-28)
 
-### Fixes
+### Bug fixes
 
 * Update dependency mashumaro to v3.12 ([`86d05e2`](https://github.com/MartinHjelmare/aiortm/commit/86d05e270615322ce7dc16081b65131e92cc11e1))
 
@@ -454,7 +466,7 @@
 
 ## v0.8.7 (2023-12-06)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.9.4 ([`52378f9`](https://github.com/MartinHjelmare/aiortm/commit/52378f9a32f713d68f51429f2aaba6b532602095))
 
@@ -465,13 +477,13 @@
 
 ## v0.8.6 (2023-11-26)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.9.1 ([`25fe179`](https://github.com/MartinHjelmare/aiortm/commit/25fe1794b06d6411bb098adb68515d7997ff0930))
 
 ## v0.8.5 (2023-11-24)
 
-### Fixes
+### Bug fixes
 
 * Update dependency mashumaro to v3.11 ([`5f05149`](https://github.com/MartinHjelmare/aiortm/commit/5f0514956be9ee1fb0ce2128d02a92b6a2206839))
 
@@ -481,13 +493,13 @@
 
 ## v0.8.4 (2023-11-21)
 
-### Fixes
+### Bug fixes
 
 * Update dependency yarl to v1.9.3 ([`fe85f9f`](https://github.com/MartinHjelmare/aiortm/commit/fe85f9f3270314e2446825729b922894a91e7b31))
 
 ## v0.8.3 (2023-11-20)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.9.0 (#91) ([`3a52285`](https://github.com/MartinHjelmare/aiortm/commit/3a522854942dbdcdf586ba836fa05379e3f648c9))
 
@@ -502,13 +514,13 @@
 
 ## v0.8.2 (2023-11-07)
 
-### Fixes
+### Bug fixes
 
 * Use correct task parse parameter (#90) ([`fde09af`](https://github.com/MartinHjelmare/aiortm/commit/fde09afe8b36074f198bb1c322670a73184967d4))
 
 ## v0.8.1 (2023-11-05)
 
-### Fixes
+### Bug fixes
 
 * Unpin ciso8601 (#89) ([`1881504`](https://github.com/MartinHjelmare/aiortm/commit/1881504514883c1b39a72e8a4afee8127b98f37d))
 
@@ -665,14 +677,14 @@
 * Update dependency pre-commit to v3.2.1 ([`a5ff362`](https://github.com/MartinHjelmare/aiortm/commit/a5ff362eef68819d73a43eacb541fd64436bef04))
 * Update actions/checkout action to v3.5.0 ([`a298f99`](https://github.com/MartinHjelmare/aiortm/commit/a298f996c3c0d853194c62875ba670c90837c507))
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.8.6 ([`2cd7486`](https://github.com/MartinHjelmare/aiortm/commit/2cd7486a605595063caf0b45cac1cee985107716))
 * Update dependency pydantic to v1.10.13 ([`c15ea42`](https://github.com/MartinHjelmare/aiortm/commit/c15ea42b0be43a45cf811f53e0ec7985532e1106))
 
 ## v0.6.3 (2023-03-23)
 
-### Fixes
+### Bug fixes
 
 * Update dependency pydantic to v1.10.7 ([`1b02f21`](https://github.com/MartinHjelmare/aiortm/commit/1b02f21189d5fad0d56c4223b4e96c8aa85a9ced))
 
@@ -691,13 +703,13 @@
 
 ## v0.6.2 (2023-03-16)
 
-### Fixes
+### Bug fixes
 
 * Update dependency pydantic to v1.10.6 ([`3f2efa9`](https://github.com/MartinHjelmare/aiortm/commit/3f2efa9ffb7d5047a5486431d40575ae7025ce82))
 
 ## v0.6.1 (2023-03-15)
 
-### Fixes
+### Bug fixes
 
 * Update dependency aiohttp to v3.8.4 ([`2e51dea`](https://github.com/MartinHjelmare/aiortm/commit/2e51dea02cce04d03beb692fb89225d8f631b0c7))
 
@@ -833,7 +845,7 @@
 
 ## v0.3.1 (2022-07-24)
 
-### Fixes
+### Bug fixes
 
 * Bump elekang/python-semantic-release to v7.29.7 (#27) ([`e23d059`](https://github.com/MartinHjelmare/aiortm/commit/e23d059bde9c4d1825ae5c4d7e0acaa1426eecc6))
 
