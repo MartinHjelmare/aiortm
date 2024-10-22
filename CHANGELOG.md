@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.9.19 (2024-10-22)
+
+### Bug fixes
+
+* Update dependency yarl to v1.16.0 ([`553fbff`](https://github.com/MartinHjelmare/aiortm/commit/553fbff4a82c1ea5ed1c7e0fe9e20d58b628e4e8))
+
+### Chores
+
+* Update dependency mypy to v1.12.1 ([`fdb2369`](https://github.com/MartinHjelmare/aiortm/commit/fdb23699d452a03a10e34c488b3aa53aac173f56))
+
 ## v0.9.18 (2024-10-18)
 
 ### Bug fixes
