@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.9.21 (2024-10-24)
+
+### Bug fixes
+
+* Update dependency mashumaro to v3.14 ([`b973284`](https://github.com/MartinHjelmare/aiortm/commit/b9732847bb2e97e89ca3b57ebcd6c48e98a7732e))
+
+### Chores
+
+* Update pre-commit hook commitizen-tools/commitizen to v3.30.0 ([`eedfce8`](https://github.com/MartinHjelmare/aiortm/commit/eedfce82f4959af9f9d8cb9f3a3fd14a68c44f09))
+* Update dependency mypy to v1.13.0 ([`2f0b4a5`](https://github.com/MartinHjelmare/aiortm/commit/2f0b4a583f9c22b8845107cca343ea71d67b4147))
+
 ## v0.9.20 (2024-10-22)
 
 ### Bug fixes
