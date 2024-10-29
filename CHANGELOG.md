@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.9.22 (2024-10-29)
+
+### Bug fixes
+
+* Update dependency yarl to v1.17.0 ([`68b8116`](https://github.com/MartinHjelmare/aiortm/commit/68b811699ddc4bf2f312be44daf93dd43ec91158))
+
+### Chores
+
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.7.1 ([`4758602`](https://github.com/MartinHjelmare/aiortm/commit/475860221e42e172aa46201534008fd31044fe81))
+
 ## v0.9.21 (2024-10-24)
 
 ### Bug fixes
