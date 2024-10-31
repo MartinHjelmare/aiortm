@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.9.23 (2024-10-31)
+
+### Bug fixes
+
+* Update dependency yarl to v1.17.1 ([`3563069`](https://github.com/MartinHjelmare/aiortm/commit/35630697a539026a9b1159486308b96ed0af6971))
+
+### Chores
+
+* Update pre-commit hook tox-dev/pyproject-fmt to v2.5.0 ([`72e1a94`](https://github.com/MartinHjelmare/aiortm/commit/72e1a94dd797035a0e1c5da3ccfb9359941cd4c4))
+* Update dependency pytest-cov to v6 (#110) ([`77dec96`](https://github.com/MartinHjelmare/aiortm/commit/77dec969fdb925ba97bef956818e12190f3d7759))
+
 ## v0.9.22 (2024-10-29)
 
 ### Bug fixes
