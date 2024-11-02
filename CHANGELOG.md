@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.9.24 (2024-11-02)
+
+### Bug fixes
+
+* Update dependency rich to v13.9.4 ([`0230340`](https://github.com/MartinHjelmare/aiortm/commit/0230340e6137194e615242dc84c495edd4991d24))
+
+### Chores
+
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.7.2 ([`51f8415`](https://github.com/MartinHjelmare/aiortm/commit/51f8415643b4cb10bf336624e38289f2ef2e52e4))
+
 ## v0.9.23 (2024-10-31)
 
 ### Bug fixes
