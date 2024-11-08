@@ -1225,7 +1225,10 @@ idna = ">=2.0"
 multidict = ">=4.0"
 propcache = ">=0.2.0"
 
+[extras]
+cli = ["typer"]
+
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "759b442f5bff075fc446c0d55c07e055e683fd420941888bc3993df4599e778d"
+content-hash = "a99174deb89398984fc94dad2fd845de3c870e05df3232ec8bd55ce4bbdf62df"
