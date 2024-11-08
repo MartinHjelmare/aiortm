@@ -31,12 +31,13 @@ aiortm = 'aiortm.cli:cli'
 [tool.poetry.dependencies]
 aiohttp = "^3.8"
 ciso8601 = "^2.3"
-click = "^8.1"
 mashumaro = "^3.10"
 python = "^3.12"
-rich = ">=10"
-typer = {extras = ["all"], version = "^0.13.0"}
+typer = "^0.13.0"
 yarl = "^1.7"
+
+[tool.poetry.extras]
+cli = ["typer"]
 
 [tool.poetry.group.dev.dependencies]
 aioresponses = "^0.7.3"
