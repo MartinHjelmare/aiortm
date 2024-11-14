@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.9.26 (2024-11-14)
+
+### Bug fixes
+
+* Update dependency aiohttp to v3.11.1 (#112) ([`910f5b5`](https://github.com/MartinHjelmare/aiortm/commit/910f5b5524c4c588dd84724a65e18c8ae4abd6c2))
+
+### Chores
+
+* Update python-semantic-release/python-semantic-release action to v9.14.0 ([`3dba712`](https://github.com/MartinHjelmare/aiortm/commit/3dba712abd93a6b111286bf59cf7aecb5c8e36df))
+* Update python-semantic-release/python-semantic-release action to v9.13.0 ([`320e09e`](https://github.com/MartinHjelmare/aiortm/commit/320e09ea84c06e58a5497955acc034cc77f029b9))
+* Update pre-commit hook commitizen-tools/commitizen to v3.30.1 ([`e839d0f`](https://github.com/MartinHjelmare/aiortm/commit/e839d0f3a51cb6417f24e009e99cdc2d267fbe60))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.7.3 ([`f5790d5`](https://github.com/MartinHjelmare/aiortm/commit/f5790d5b010136db439cec216ce0172fbe83b0a3))
+* Adjust typer deps (#111) ([`3eb6b07`](https://github.com/MartinHjelmare/aiortm/commit/3eb6b07d5f737da00848bd5f9cfa22a2e9b6ce9c))
+
 ## v0.9.25 (2024-11-08)
 
 ### Bug fixes
@@ -239,12 +253,9 @@
 ### Chores
 
 * Update python-semantic-release/python-semantic-release action to v9.8.8 ([`e108c1b`](https://github.com/MartinHjelmare/aiortm/commit/e108c1ba23bd1e2d2d4506dab3c2cd3925e64e6c))
+* Run copier copy (#106) ([`ca06ee9`](https://github.com/MartinHjelmare/aiortm/commit/ca06ee93329dc3f3831dbde1357fbd766aaf22f5))
 * Fix license identifier (#105) ([`b176763`](https://github.com/MartinHjelmare/aiortm/commit/b1767636c7d542e58a606cd452a6cb19e50c7f3d))
 * Update dependency pytest to v8.3.3 ([`5505fd9`](https://github.com/MartinHjelmare/aiortm/commit/5505fd9111281b4f89dfc2cfd7d41ce7618da61d))
-
-### Breaking
-
-* Run copier copy (#106) ([`ca06ee9`](https://github.com/MartinHjelmare/aiortm/commit/ca06ee93329dc3f3831dbde1357fbd766aaf22f5))
 
 ## v0.8.29 (2024-09-10)
 
