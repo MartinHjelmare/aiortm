@@ -11,7 +11,7 @@ from .exceptions import (
     TransportResponseError,
 )
 
-__version__ = "0.9.26"
+__version__ = "0.9.27"
 
 __all__ = [
     "AioRTMClient",
