@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.9.28 (2024-11-17)
+
+### Bug fixes
+
+* Update dependency yarl to v1.17.2 ([`0122fe0`](https://github.com/MartinHjelmare/aiortm/commit/0122fe0c476836cd59f9b13277d0d57708ba16aa))
+
+### Chores
+
+* Update pre-commit hook commitizen-tools/commitizen to v3.31.0 ([`df29e8f`](https://github.com/MartinHjelmare/aiortm/commit/df29e8f44aa43a04ae05bd0faa8a2393d844b849))
+* Update dependency aioresponses to v0.7.7 ([`f1375c9`](https://github.com/MartinHjelmare/aiortm/commit/f1375c9783635a1ca3ba97684f4de9be0c6c395a))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.7.4 ([`7321247`](https://github.com/MartinHjelmare/aiortm/commit/7321247dad0991e937baa57404d52e6de999f877))
+* Update codecov/codecov-action action to v5 (#113) ([`e38d29b`](https://github.com/MartinHjelmare/aiortm/commit/e38d29b4eb4a8aa36ae9fdaf808ab3d273fb6f7a))
+
 ## v0.9.27 (2024-11-15)
 
 ### Bug fixes
