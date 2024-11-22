@@ -14,11 +14,11 @@ from .exceptions import (
 __version__ = "0.9.34"
 
 __all__ = [
-    "AioRTMClient",
-    "Auth",
-    "AioRTMError",
     "APIAuthError",
     "APIResponseError",
+    "AioRTMClient",
+    "AioRTMError",
+    "Auth",
     "AuthError",
     "ResponseError",
     "TransportAuthError",
