@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.9.35 (2024-11-23)
+
+### Bug fixes
+
+* Update dependency mashumaro to v3.15 ([`db556b6`](https://github.com/MartinHjelmare/aiortm/commit/db556b63325f7c6b35e542aaa7e7845592e03027))
+
+### Chores
+
+* Add dev deps (#115) ([`1c14774`](https://github.com/MartinHjelmare/aiortm/commit/1c147747145f0c0710ad69aad1677f7657f04208))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.8.0 (#114) ([`acd1b7f`](https://github.com/MartinHjelmare/aiortm/commit/acd1b7fcf954743b4929505bfea2e6089c17b666))
+
 ## v0.9.34 (2024-11-21)
 
 ### Bug fixes
