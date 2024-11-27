@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.9.36 (2024-11-27)
+
+### Bug fixes
+
+* Update dependency aiohttp to v3.11.8 ([`cf2d14a`](https://github.com/MartinHjelmare/aiortm/commit/cf2d14a234e184f9b424a05f89f3dada6b9b07f1))
+
+### Chores
+
+* Update pre-commit hook commitizen-tools/commitizen to v4 (#116) ([`5f751b4`](https://github.com/MartinHjelmare/aiortm/commit/5f751b4a49cc4af88b0e61b4f72c83ebe517d9f8))
+
 ## v0.9.35 (2024-11-23)
 
 ### Bug fixes
