@@ -33,7 +33,7 @@ aiohttp = "^3.8"
 ciso8601 = "^2.3"
 mashumaro = "^3.10"
 python = "^3.12"
-typer = "^0.13.0"
+typer = "^0.14.0"
 yarl = "^1.7"
 
 [tool.poetry.extras]
