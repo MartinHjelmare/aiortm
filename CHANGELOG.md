@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.9.39 (2024-12-02)
+
+### Bug fixes
+
+* Update dependency aiohttp to v3.11.9 ([`768a514`](https://github.com/MartinHjelmare/aiortm/commit/768a514429f2fd6f24f6164e1e56221dca65a00d))
+
+### Chores
+
+* Update dependency python-semantic-release to v9.15.0 ([`96a4199`](https://github.com/MartinHjelmare/aiortm/commit/96a4199ae54917d4f923d22a749e1c969f8c25f0))
+
 ## v0.9.38 (2024-12-02)
 
 ### Chores
