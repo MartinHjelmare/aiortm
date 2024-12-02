@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.9.38 (2024-12-02)
+
+### Chores
+
+* Update python-semantic-release/python-semantic-release action to v9.15.0 ([`7afca3f`](https://github.com/MartinHjelmare/aiortm/commit/7afca3f0deb1775d37b70acb5c39455b5c9afd51))
+* Update dependency pytest to v8.3.4 ([`f9de7d6`](https://github.com/MartinHjelmare/aiortm/commit/f9de7d63af0db7f0720914ec63dec2c2c0655c60))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.8.1 ([`d94bd98`](https://github.com/MartinHjelmare/aiortm/commit/d94bd983a171bd809427810b69360c7030563074))
+* Update dependency ruff to v0.8.1 ([`ae1d660`](https://github.com/MartinHjelmare/aiortm/commit/ae1d660e05d7165fb33e2cbe225c62a8b88fb744))
+
+### Bug fixes
+
+* Update dependency yarl to v1.18.3 ([`fe30887`](https://github.com/MartinHjelmare/aiortm/commit/fe308876cc2d468ca25ae1538eb3d0b2a7ae2ba2))
+
 ## v0.9.37 (2024-11-29)
 
 ### Bug fixes
