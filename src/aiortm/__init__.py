@@ -11,7 +11,7 @@ from .exceptions import (
     TransportResponseError,
 )
 
-__version__ = "0.9.39"
+__version__ = "0.9.40"
 
 __all__ = [
     "APIAuthError",

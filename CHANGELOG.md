@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.9.40 (2024-12-03)
+
+### Bug fixes
+
+* Update dependency typer to ^0.15.0 ([`e3b8b2e`](https://github.com/MartinHjelmare/aiortm/commit/e3b8b2e3c287795bc4eb913d4fa68370b98bf60f))
+
+### Chores
+
+* Update python-semantic-release/python-semantic-release action to v9.15.1 ([`7904f4b`](https://github.com/MartinHjelmare/aiortm/commit/7904f4b9291636959d6b8f45d5f1d87a27fdd559))
+* Update dependency python-semantic-release to v9.15.1 ([`7e0ae4c`](https://github.com/MartinHjelmare/aiortm/commit/7e0ae4c8214812a203f551f60ccae1eccfda54ff))
+
 ## v0.9.39 (2024-12-02)
 
 ### Bug fixes
