@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.9.41 (2024-12-04)
+
+### Bug fixes
+
+* Update dependency typer to v0.15.1 ([`441bb11`](https://github.com/MartinHjelmare/aiortm/commit/441bb118895aa33e3dde1c81ccfbac669184d346))
+
 ## v0.9.40 (2024-12-03)
 
 ### Bug fixes
