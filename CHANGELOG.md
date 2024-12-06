@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.9.42 (2024-12-06)
+
+### Bug fixes
+
+* Update dependency aiohttp to v3.11.10 ([`e0f0bf7`](https://github.com/MartinHjelmare/aiortm/commit/e0f0bf78e12180d1b103557b385c3d1d68f941f1))
+
+### Chores
+
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.8.2 ([`f27fd55`](https://github.com/MartinHjelmare/aiortm/commit/f27fd55744cde80853b4467f971d30c09e97b768))
+* Update dependency ruff to v0.8.2 ([`22595e6`](https://github.com/MartinHjelmare/aiortm/commit/22595e6a62c9e43ef62be10348e74d236cff2fc3))
+* Update actions/attest-build-provenance action to v2 (#117) ([`a895ac4`](https://github.com/MartinHjelmare/aiortm/commit/a895ac430110eb88df3ab4b435d02328df96161d))
+
 ## v0.9.41 (2024-12-04)
 
 ### Bug fixes
