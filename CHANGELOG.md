@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.9.43 (2024-12-09)
+
+### Bug fixes
+
+* Update dependency ciso8601 to v2.3.2 ([`14efdac`](https://github.com/MartinHjelmare/aiortm/commit/14efdacaa9bba879d7396ba116973d4a1d7b4f71))
+
+### Chores
+
+* Update pre-commit hook commitizen-tools/commitizen to v4.1.0 ([`70fbaaf`](https://github.com/MartinHjelmare/aiortm/commit/70fbaaf6fba427044b5c4d93b0b8dea6a7ab6025))
+* Update pre-commit hook python-poetry/poetry to v1.8.5 ([`b339913`](https://github.com/MartinHjelmare/aiortm/commit/b3399137ebcc9d5c989729598de59376ee6d8e21))
+
 ## v0.9.42 (2024-12-06)
 
 ### Bug fixes
