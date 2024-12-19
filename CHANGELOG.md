@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.9.44 (2024-12-19)
+
+### Bug fixes
+
+* Update dependency aiohttp to v3.11.11 ([`fe0b00d`](https://github.com/MartinHjelmare/aiortm/commit/fe0b00df8f1fc798fc695025826bc510a91485db))
+
+### Chores
+
+* Update wagoid/commitlint-github-action action to v6.2.0 ([`25be905`](https://github.com/MartinHjelmare/aiortm/commit/25be905a2255e1bdb139ec142bd9cdda7e913510))
+* Update python-semantic-release/python-semantic-release action to v9.15.2 ([`8fd5268`](https://github.com/MartinHjelmare/aiortm/commit/8fd5268bab38007153cc62a2d68c7b4c30402e77))
+* Update dependency python-semantic-release to v9.15.2 ([`2645fed`](https://github.com/MartinHjelmare/aiortm/commit/2645fed0e32b69072e0fa3378cd0b4585c97cd96))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.8.3 ([`ed442f8`](https://github.com/MartinHjelmare/aiortm/commit/ed442f8047115ad61951bce728c4769aecd7779d))
+* Update dependency ruff to v0.8.3 ([`8a52d22`](https://github.com/MartinHjelmare/aiortm/commit/8a52d22f12c0febeb1a8d489557586e116105207))
+
 ## v0.9.43 (2024-12-09)
 
 ### Bug fixes
