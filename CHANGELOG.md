@@ -1,5 +1,49 @@
 # Changelog
 
+## v0.9.45 (2025-02-06)
+
+### Bug fixes
+
+* Update dependency aiohttp to v3.11.12 ([`a82ac08`](https://github.com/MartinHjelmare/aiortm/commit/a82ac088319f8f4b2dd9ba72f1f5c2d8e6449ae1))
+
+### Chores
+
+* Update python-semantic-release/python-semantic-release action to v9.18.0 ([`c191446`](https://github.com/MartinHjelmare/aiortm/commit/c191446b261a00ef12a00b7af423f88f5c521214))
+* Update dependency ruff to v0.9.4 (#120) ([`19c8f3c`](https://github.com/MartinHjelmare/aiortm/commit/19c8f3c0b4c8487071ed92df2bbbfeba97487d57))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.9.4 (#121) ([`c24eb57`](https://github.com/MartinHjelmare/aiortm/commit/c24eb57d28792ea8956252478bba73f75380e0ac))
+* Update dependency mypy to v1.15.0 ([`007fe76`](https://github.com/MartinHjelmare/aiortm/commit/007fe7632e1201045490243a28bf74d3efff0207))
+* Update pre-commit hook codespell-project/codespell to v2.4.1 ([`132ee3a`](https://github.com/MartinHjelmare/aiortm/commit/132ee3a348b8360c0932e669553a5287673a7bdd))
+* Update dependency codespell to v2.4.1 ([`7393485`](https://github.com/MartinHjelmare/aiortm/commit/7393485ed9bf832e24da4398ae070fc74b9bb630))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.9.3 ([`4af3f7f`](https://github.com/MartinHjelmare/aiortm/commit/4af3f7f577c7585ee754975ba5b6568ccd1a685e))
+* Update pre-commit hook commitizen-tools/commitizen to v4.1.1 ([`4d69e14`](https://github.com/MartinHjelmare/aiortm/commit/4d69e14790150b5b46cc28c0f9bdd73f0e0d71a1))
+* Update python-semantic-release/python-semantic-release action to v9.17.0 ([`14b7879`](https://github.com/MartinHjelmare/aiortm/commit/14b78796806c311f8edfe05bf47300b6e4295a97))
+* Update dependency pytest-aiohttp to v1.1.0 ([`b033d85`](https://github.com/MartinHjelmare/aiortm/commit/b033d8535cd9291d5196075898fed0059be1d223))
+* Update dependency python-semantic-release to v9.17.0 ([`176bb61`](https://github.com/MartinHjelmare/aiortm/commit/176bb61755eacee798e7bab710c93bf3febac39f))
+* Update dependency ruff to v0.9.3 ([`71eeb8c`](https://github.com/MartinHjelmare/aiortm/commit/71eeb8c04a8d3d96c050e465dcec3c9d7fda5b70))
+* Update pre-commit hook codespell-project/codespell to v2.4.0 ([`d4c533c`](https://github.com/MartinHjelmare/aiortm/commit/d4c533c57eb228efbfc185ba8d7239a4966841bd))
+* Update dependency codespell to v2.4.0 ([`2fe81da`](https://github.com/MartinHjelmare/aiortm/commit/2fe81daa813ef040f3868cc3c24a66d406e6de89))
+* Update dependency pre-commit to v4.1.0 ([`90fa93d`](https://github.com/MartinHjelmare/aiortm/commit/90fa93d4ee3a69b0b1caf2fb05711a2571d218ed))
+* Update dependency aioresponses to v0.7.8 ([`8056f28`](https://github.com/MartinHjelmare/aiortm/commit/8056f282be7f97d514a136330a4819eaca0a3f27))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.9.2 ([`8480936`](https://github.com/MartinHjelmare/aiortm/commit/84809361c424f3f67ee2581fac442fd1550a94c2))
+* Update dependency ruff to v0.9.2 ([`24da459`](https://github.com/MartinHjelmare/aiortm/commit/24da459ead7ab9a78a14c10f015d2bec9fe65e95))
+* Update wagoid/commitlint-github-action action to v6.2.1 ([`f3af88b`](https://github.com/MartinHjelmare/aiortm/commit/f3af88ba8ed01e8da816c8d1996cb15df81dfb4a))
+* Update python-semantic-release/python-semantic-release action to v9.16.1 ([`02bc48c`](https://github.com/MartinHjelmare/aiortm/commit/02bc48c2d7dc88aad8b0526e7a501b4f54d2e834))
+* Update dependency python-semantic-release to v9.16.1 ([`c38908a`](https://github.com/MartinHjelmare/aiortm/commit/c38908a5b9657a8ad0a0481646830a452db07654))
+* Update dependency python-semantic-release to v9.16.0 ([`a8c44bc`](https://github.com/MartinHjelmare/aiortm/commit/a8c44bc6a591dcd3a4a59de558b04f9d73aaecb4))
+* Update python-semantic-release/python-semantic-release action to v9.16.0 ([`3408fb1`](https://github.com/MartinHjelmare/aiortm/commit/3408fb1632ecafd74c51fd4f3b45cbeb7e57717a))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.9.1 ([`b831ffc`](https://github.com/MartinHjelmare/aiortm/commit/b831ffc900935bd9df45834a8a59ecb548d8d573))
+* Update dependency ruff to v0.9.1 ([`9e46bc9`](https://github.com/MartinHjelmare/aiortm/commit/9e46bc9c7738f2cc9d11c4e25bc04fc53b3f2fd6))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.9.0 ([`1f5e5bb`](https://github.com/MartinHjelmare/aiortm/commit/1f5e5bbcb94565f51aadc47828172f777e3cb503))
+* Update dependency ruff to ^0.9.0 ([`13f3ec7`](https://github.com/MartinHjelmare/aiortm/commit/13f3ec711f1b38e6019f5ec24ae655f0229dc36c))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.8.6 ([`6346bf6`](https://github.com/MartinHjelmare/aiortm/commit/6346bf6ab96894c0f4cd941fe0ef74c990b7c765))
+* Update dependency ruff to v0.8.6 ([`fd3ccd6`](https://github.com/MartinHjelmare/aiortm/commit/fd3ccd695e5aeb32c37ebc64b337c27e192be1dd))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.8.5 ([`f6d2274`](https://github.com/MartinHjelmare/aiortm/commit/f6d22745ffd2d35b02eca74d886f79b213aad209))
+* Update dependency ruff to v0.8.5 ([`d77aa87`](https://github.com/MartinHjelmare/aiortm/commit/d77aa8732e768e81a489b15365e666ee48156694))
+* Update dependency mypy to v1.14.1 ([`5d1b6ea`](https://github.com/MartinHjelmare/aiortm/commit/5d1b6ea25daa52c1a5a89285d8b8edfba53b43f7))
+* Update dependency mypy to v1.14.0 ([`5ba5353`](https://github.com/MartinHjelmare/aiortm/commit/5ba53536c2633cc57ea792bf9188f5e504898ab3))
+* Update pre-commit hook astral-sh/ruff-pre-commit to v0.8.4 ([`1ac7711`](https://github.com/MartinHjelmare/aiortm/commit/1ac77112cc2b96ce570afd41cf0e19ef2963df50))
+* Update dependency ruff to v0.8.4 ([`86cb4a1`](https://github.com/MartinHjelmare/aiortm/commit/86cb4a11e84f3bdb32b0aa2d0f65e53e528bc010))
+
 ## v0.9.44 (2024-12-19)
 
 ### Bug fixes
