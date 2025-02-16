@@ -1,70 +1,69 @@
 [build-system]
-build-backend = "poetry.core.masonry.api"
-requires = ["poetry-core>=1.0.0"]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools"]
 
-[tool.poetry]
-authors = ["Martin Hjelmare <marhje52@gmail.com>"]
+[project]
+authors = [
+  {name = "Martin Hjelmare", email = "marhje52@gmail.com"},
+]
 classifiers = [
   "Development Status :: 2 - Pre-Alpha",
   "Intended Audience :: Developers",
   "Natural Language :: English",
   "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Topic :: Software Development :: Libraries",
 ]
 description = "Use the Remember the Milk API with aiohttp."
-license = "Apache-2.0"
+license = {text = "Apache-2.0"}
 name = "aiortm"
-packages = [
-  {include = "aiortm", from = "src"},
-]
 readme = "README.md"
-repository = "https://github.com/MartinHjelmare/aiortm"
+requires-python = ">=3.12"
 version = "0.9.45"
 
-[tool.poetry.scripts]
-aiortm = 'aiortm.cli:cli'
+dependencies = [
+  "aiohttp>=3.8",
+  "ciso8601>=2.3",
+  "mashumaro>=3.10",
+  "yarl>=1.7",
+]
+scripts.aiortm = "aiortm.cli:cli"
+urls."Bug Tracker" = "https://github.com/MartinHjelmare/aiortm/issues"
+urls.Changelog = "https://github.com/MartinHjelmare/aiortm/blob/main/CHANGELOG.md"
+urls.repository = "https://github.com/MartinHjelmare/aiortm"
 
-[tool.poetry.urls]
-"Bug Tracker" = "https://github.com/MartinHjelmare/aiortm/issues"
-"Changelog" = "https://github.com/MartinHjelmare/aiortm/blob/main/CHANGELOG.md"
+[project.optional-dependencies]
+cli = [
+  "typer>=0.15,<1",
+]
 
-[tool.poetry.dependencies]
-aiohttp = "^3.8"
-ciso8601 = "^2.3"
-mashumaro = "^3.10"
-python = "^3.12"
-typer = "^0.15.0"
-yarl = "^1.7"
-
-[tool.poetry.extras]
-cli = ["typer"]
-
-[tool.poetry.group.dev.dependencies]
-aioresponses = "^0.7.3"
-codespell = "^2.3.0"
-copier = "^9.4.1"
-mypy = "^1.0"
-pre-commit = "^4.0.0"
-pytest = "^8.0.0"
-pytest-aiohttp = "^1.0.4"
-pytest-cov = "^6.0.0"
-python-semantic-release = "^9.14.0"
-ruff = "^0.9.0"
+[dependency-groups]
+dev = [
+  "aioresponses==0.7.8",
+  "codespell==2.3.0",
+  "copier==9.4.1",
+  "mypy==1.15.0",
+  "pre-commit==4.1.0",
+  "pytest==8.3.4",
+  "pytest-aiohttp==1.1.0",
+  "pytest-cov==6.0.0",
+  "python-semantic-release==9.18.0",
+  "ruff==0.9.5",
+]
 
 [tool.ruff]
 line-length = 88
 lint.ignore = [
-  "ANN101", # missing-type-self
-  "ANN102", # missing-type-cls
   "D203", # 1 blank line required before class docstring
   "D213", # Multi-line docstring summary should start at the second line
   "EM101", # raw-string-in-exception
   "EM102", # f-string-in-exception
   "PLR0913", # too-many-arguments
   "PLR2004", # magic-value-comparison
-  "TCH001", # typing-only-first-party-import
-  "TCH002", # typing-only-third-party-import
-  "TCH003", # typing-only-stdlib-import
+  "TC001", # typing-only-first-party-import
+  "TC002", # typing-only-third-party-import
+  "TC003", # typing-only-stdlib-import
   "TRY003", # raise-vanilla-args
 ]
 lint.isort.force-sort-within-sections = true
@@ -88,6 +87,7 @@ addopts = """\
     --cov-report=term-missing
     --cov-report=xml
     """
+asyncio_default_fixture_loop_scope = "function"
 asyncio_mode = "auto"
 pythonpath = ["src"]
 
@@ -127,16 +127,28 @@ allow_untyped_defs = true
 module = "tests.*"
 
 [tool.semantic_release]
-build_command = "pip install poetry && poetry build"
+build_command = """
+pip install uv
+uv lock
+git add uv.lock
+uv build
+"""
 major_on_zero = false
-version_toml = ["pyproject.toml:tool.poetry.version"]
+version_toml = ["pyproject.toml:project.version"]
 version_variables = [
   "src/aiortm/__init__.py:__version__",
 ]
 
 [tool.semantic_release.changelog]
 exclude_commit_patterns = [
-  "Merge pull request .*",
+  '''chore(?:\([^)]*?\))?: .+''',
+  '''ci(?:\([^)]*?\))?: .+''',
+  '''refactor(?:\([^)]*?\))?: .+''',
+  '''style(?:\([^)]*?\))?: .+''',
+  '''test(?:\([^)]*?\))?: .+''',
+  '''build\((?!deps\): .+)''',
+  '''Merged? .*''',
+  '''Initial [Cc]ommit.*''', # codespell:ignore
 ]
 
 [tool.semantic_release.changelog.environment]
