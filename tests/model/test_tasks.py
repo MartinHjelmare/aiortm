@@ -13,13 +13,13 @@ from aiortm.client import AioRTMClient
 from tests.util import load_fixture
 
 
-@pytest.fixture(name="tasks_add", scope="session")
+@pytest.fixture(name="tasks_add", scope="module")
 def tasks_add_fixture() -> str:
     """Return a response for rtm.tasks.add."""
     return load_fixture("tasks/add.json")
 
 
-@pytest.fixture(name="tasks_set_name", scope="session")
+@pytest.fixture(name="tasks_set_name", scope="module")
 def tasks_set_name_fixture() -> str:
     """Return a response for rtm.tasks.setName."""
     return load_fixture("tasks/set_name.json")

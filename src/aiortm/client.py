@@ -82,16 +82,14 @@ class Auth:
         self.auth_token = cast(str, auth_data["token"])
         return auth_data
 
-    async def check_token(self) -> bool:
-        """Check if auth token is valid."""
-        if self.auth_token is None:
-            return False
-        try:
-            await self.call_api_auth("rtm.auth.checkToken")
-        except APIAuthError:
-            return False
+    async def check_token(self) -> dict[str, Any]:
+        """Check if auth token is valid.
 
-        return True
+        Will raise APIAuthError if the token is invalid.
+        """
+        data = await self.call_api_auth("rtm.auth.checkToken")
+        auth_data: dict[str, Any] = data["auth"]
+        return auth_data
 
     async def call_api_auth(self, api_method: str, **params: Any) -> dict[str, Any]:  # noqa: ANN401
         """Call an api method that requires authentication."""
