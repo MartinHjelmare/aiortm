@@ -75,7 +75,7 @@ wheels = [
 
 [[package]]
 name = "aiortm"
-version = "0.9.45"
+version = "0.10.0"
 source = { editable = "." }
 dependencies = [
     { name = "aiohttp" },
