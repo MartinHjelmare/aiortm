@@ -79,9 +79,7 @@ async def authorize_app(api_key: str, secret: str) -> None:
         auth = Auth(client_session=session, api_key=api_key, shared_secret=secret)
 
         url, frob = await auth.authenticate_desktop()
-
-        loop = asyncio.get_running_loop()
-        await loop.run_in_executor(None, webbrowser.open, url)
+        await asyncio.to_thread(webbrowser.open, url)
 
         if not typer.confirm("Have you authorized this app at RTM?"):
             rich_print("Exiting")
