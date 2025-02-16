@@ -72,6 +72,7 @@ lint.per-file-ignores."setup.py" = ["D100"]
 lint.per-file-ignores."tests/**/*" = [
   "PT004", # pytest-missing-fixture-name-underscore
   "S101",
+  "S105", # hardcoded-password-string
   "S106", # hardcoded-password-func-arg
   "SLF001", # private-member-access
 ]
@@ -100,6 +101,7 @@ exclude_lines = [
   "@overload",
   "if TYPE_CHECKING",
   "raise NotImplementedError",
+  "raise RuntimeError",
   'if __name__ == "__main__":',
 ]
 

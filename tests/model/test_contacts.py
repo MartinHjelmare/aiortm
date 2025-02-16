@@ -13,37 +13,37 @@ from aiortm.exceptions import APIResponseError
 from tests.util import load_fixture
 
 
-@pytest.fixture(name="contacts_add", scope="session")
+@pytest.fixture(name="contacts_add", scope="module")
 def contacts_add_fixture() -> str:
     """Return a response for rtm.contacts.add."""
     return load_fixture("contacts/add.json")
 
 
-@pytest.fixture(name="contacts_add_not_exist", scope="session")
+@pytest.fixture(name="contacts_add_not_exist", scope="module")
 def contacts_add_not_exist_fixture() -> str:
     """Return a response for rtm.contacts.add non existing contact."""
     return load_fixture("contacts/add_contact_not_exist.json")
 
 
-@pytest.fixture(name="contacts_get_list", scope="session")
+@pytest.fixture(name="contacts_get_list", scope="module")
 def contacts_get_list_fixture() -> str:
     """Return a response for rtm.contacts.getList."""
     return load_fixture("contacts/get_list.json")
 
 
-@pytest.fixture(name="contacts_get_list_no_contacts", scope="session")
+@pytest.fixture(name="contacts_get_list_no_contacts", scope="module")
 def contacts_get_list_no_contacts_fixture() -> str:
     """Return a response for rtm.contacts.getList with no contacts."""
     return load_fixture("contacts/get_list_no_contacts.json")
 
 
-@pytest.fixture(name="contacts_delete", scope="session")
+@pytest.fixture(name="contacts_delete", scope="module")
 def contacts_delete_fixture() -> str:
     """Return a response for rtm.contacts.delete."""
     return load_fixture("contacts/delete.json")
 
 
-@pytest.fixture(name="contacts_delete_invalid_contact_id", scope="session")
+@pytest.fixture(name="contacts_delete_invalid_contact_id", scope="module")
 def contacts_delete_invalid_contact_id_fixture() -> str:
     """Return a response for rtm.contacts.delete for invalid contact id."""
     return load_fixture("contacts/delete_contact_id_invalid.json")
