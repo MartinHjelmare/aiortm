@@ -79,7 +79,7 @@ class Auth:
         """Fetch the authentication token with the frob."""
         data = await self.call_api("rtm.auth.getToken", api_key=self.api_key, frob=frob)
         auth_data: dict[str, Any] = data["auth"]
-        self.auth_token = cast(str, auth_data["token"])
+        self.auth_token = cast("str", auth_data["token"])
         return auth_data
 
     async def check_token(self) -> dict[str, Any]:
