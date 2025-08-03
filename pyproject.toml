@@ -48,7 +48,7 @@ dev = [
   "pytest==8.4.1",
   "pytest-aiohttp==1.1.0",
   "pytest-cov==6.2.1",
-  "python-semantic-release==9.21.1",
+  "python-semantic-release>=10,<11",
   "ruff==0.12.5",
 ]
 
@@ -129,6 +129,7 @@ allow_untyped_defs = true
 module = "tests.*"
 
 [tool.semantic_release]
+allow_zero_version = true
 build_command = """
 pip install uv
 uv lock
@@ -140,6 +141,9 @@ version_toml = ["pyproject.toml:project.version"]
 version_variables = [
   "src/aiortm/__init__.py:__version__",
 ]
+
+[tool.semantic_release.commit_parser_options]
+parse_squash_commits = false
 
 [tool.semantic_release.changelog]
 exclude_commit_patterns = [
