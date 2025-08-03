@@ -1,5 +1,6 @@
 # CHANGELOG
 
+<!-- version list -->
 
 ## v0.10.0 (2025-02-16)
 
@@ -7,12 +8,6 @@
 
 - Return token response from check_token ([#124](https://github.com/MartinHjelmare/aiortm/pull/124),
   [`9d05bf5`](https://github.com/MartinHjelmare/aiortm/commit/9d05bf5e34216e748cbedf51fe12fa82f54b1952))
-
-* feat!: return token response from check_token
-
-* chore: clean up asyncio loop usage
-
-* test: add client tests
 
 
 ## v0.9.45 (2025-02-06)
@@ -174,8 +169,6 @@
 - **deps**: Update dependency aiohttp to v3.11.1
   ([#112](https://github.com/MartinHjelmare/aiortm/pull/112),
   [`910f5b5`](https://github.com/MartinHjelmare/aiortm/commit/910f5b5524c4c588dd84724a65e18c8ae4abd6c2))
-
-Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
 
 
 ## v0.9.25 (2024-11-08)
@@ -384,10 +377,6 @@ Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
 
 - Run copier copy ([#106](https://github.com/MartinHjelmare/aiortm/pull/106),
   [`ca06ee9`](https://github.com/MartinHjelmare/aiortm/commit/ca06ee93329dc3f3831dbde1357fbd766aaf22f5))
-
-BREAKING CHANGE: drop support for python 3.9, 3.10 and 3.11
-
-Minimum Python version is now 3.12.
 
 ### Breaking Changes
 
@@ -610,8 +599,6 @@ Minimum Python version is now 3.12.
   ([#91](https://github.com/MartinHjelmare/aiortm/pull/91),
   [`3a52285`](https://github.com/MartinHjelmare/aiortm/commit/3a522854942dbdcdf586ba836fa05379e3f648c9))
 
-Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
-
 
 ## v0.8.2 (2023-11-07)
 
@@ -731,13 +718,4 @@ Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
 
 ## v0.2.0 (2022-05-20)
 
-### Features
-
-- Add authorize methods
-  ([`3bb9347`](https://github.com/MartinHjelmare/aiortm/commit/3bb9347dc8cfa231638aa500a74d692631baf8aa))
-
-- Add CLI
-  ([`8955f32`](https://github.com/MartinHjelmare/aiortm/commit/8955f320427576d645bcedd95dce0355426ddba4))
-
-- Build request
-  ([`bfc36e4`](https://github.com/MartinHjelmare/aiortm/commit/bfc36e4bbb87c0e0569d48655f280ac0cebd359c))
+- Initial Release
