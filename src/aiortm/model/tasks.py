@@ -122,6 +122,7 @@ class Tasks:
 
     async def add(
         self,
+        *,
         timeline: int,
         name: str,
         list_id: int | None = None,
@@ -139,6 +140,7 @@ class Tasks:
 
     async def complete(
         self,
+        *,
         timeline: int,
         list_id: int,
         taskseries_id: int,
@@ -156,6 +158,7 @@ class Tasks:
 
     async def delete(
         self,
+        *,
         timeline: int,
         list_id: int,
         taskseries_id: int,
@@ -173,6 +176,7 @@ class Tasks:
 
     async def get_list(
         self,
+        *,
         list_id: int | None = None,
         last_sync: datetime | None = None,
     ) -> TasksResponse:
@@ -190,6 +194,7 @@ class Tasks:
 
     async def set_name(
         self,
+        *,
         timeline: int,
         list_id: int,
         taskseries_id: int,

@@ -59,7 +59,7 @@ class Contacts:
 
     api: Auth
 
-    async def add(self, timeline: int, contact: str) -> ContactAddResponse:
+    async def add(self, *, timeline: int, contact: str) -> ContactAddResponse:
         """Add a contact."""
         result = await self.api.call_api_auth(
             "rtm.contacts.add",
@@ -68,7 +68,7 @@ class Contacts:
         )
         return ContactAddResponse.from_dict(result)
 
-    async def delete(self, timeline: int, contact_id: int) -> ContactDeleteResponse:
+    async def delete(self, *, timeline: int, contact_id: int) -> ContactDeleteResponse:
         """Delete a contact."""
         result = await self.api.call_api_auth(
             "rtm.contacts.delete",
