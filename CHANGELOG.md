@@ -2,6 +2,19 @@
 
 <!-- version list -->
 
+## v0.11.0 (2025-08-04)
+
+### Features
+
+- Require kwargs in all model methods with paremeters
+  ([#143](https://github.com/MartinHjelmare/aiortm/pull/143),
+  [`a3cefa1`](https://github.com/MartinHjelmare/aiortm/commit/a3cefa18ea1eebed86718f2ac10e3c20e692ddbd))
+
+### Breaking Changes
+
+- All model methods that have parameters now require kwargs.
+
+
 ## v0.10.0 (2025-02-16)
 
 ### Features
