@@ -16,7 +16,7 @@ classifiers = [
   "Topic :: Software Development :: Libraries",
 ]
 description = "Use the Remember the Milk API with aiohttp."
-license = {text = "Apache-2.0"}
+license = "Apache-2.0"
 name = "aiortm"
 readme = "README.md"
 requires-python = ">=3.12"
