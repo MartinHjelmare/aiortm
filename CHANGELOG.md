@@ -2,6 +2,18 @@
 
 <!-- version list -->
 
+## v0.12.0 (2026-03-06)
+
+### Chores
+
+- Require Python 3.13 ([#162](https://github.com/MartinHjelmare/aiortm/pull/162),
+  [`441e406`](https://github.com/MartinHjelmare/aiortm/commit/441e40675a30045679802176f6e40927ce2da140))
+
+### Breaking Changes
+
+- Drop support for Python 3.12
+
+
 ## v0.11.0 (2025-08-04)
 
 ### Features
