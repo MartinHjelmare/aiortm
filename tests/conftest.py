@@ -21,14 +21,14 @@ def debug_logging(caplog: pytest.LogCaptureFixture) -> None:
 
 
 @pytest.fixture
-def mock_response() -> Generator[aioresponses, None, None]:
+def mock_response() -> Generator[aioresponses]:
     """Provide a mocker for aiohttp responses."""
     with aioresponses() as mock_response_:
         yield mock_response_
 
 
 @pytest.fixture(name="session")
-async def session_fixture() -> AsyncGenerator[ClientSession, None]:
+async def session_fixture() -> AsyncGenerator[ClientSession]:
     """Provide a aiohttp client session."""
     async with ClientSession() as session:
         yield session
