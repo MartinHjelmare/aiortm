@@ -69,7 +69,6 @@ lint.ignore = [
   "TC003",   # typing-only-stdlib-import
   "TRY003",  # raise-vanilla-args
 ]
-lint.per-file-ignores."setup.py" = [ "D100" ]
 lint.per-file-ignores."tests/**/*" = [
   "PT004",  # pytest-missing-fixture-name-underscore
   "S101",
