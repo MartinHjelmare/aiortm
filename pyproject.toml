@@ -39,7 +39,7 @@ scripts.aiortm = "aiortm.cli:cli"
 [dependency-groups]
 dev = [
   "aioresponses==0.7.9",
-  "codespell==2.4.2",
+  "codespell==2.4.3",
   "copier==9.16.0",
   "prek>=0.3.11",
   "pytest==9.1.1",
