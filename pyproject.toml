@@ -40,7 +40,7 @@ scripts.aiortm = "aiortm.cli:cli"
 dev = [
   "aioresponses==0.7.9",
   "codespell==2.4.3",
-  "copier==9.16.0",
+  "copier==9.17.0",
   "prek>=0.3.11",
   "pytest==9.1.1",
   "pytest-aiohttp==1.1.1",
