@@ -80,16 +80,17 @@ wheels = [
 ]
 
 [[package]]
-name = "aioresponses"
-version = "0.7.9"
+name = "aiointercept"
+version = "0.1.9"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiohttp" },
-    { name = "packaging" },
+    { name = "multidict" },
+    { name = "yarl" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/28/fb/e3f08af812b3e66fca511ea1babb9dfddeca5965dea2a4d13b6926e0b1c2/aioresponses-0.7.9.tar.gz", hash = "sha256:1dcfa28938fc006f046a98383a7c07ac180be7a492c1ed557f5cd7b0805357d3", size = 34072, upload-time = "2026-06-23T21:23:23.828Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c7/62/f310cd6002a5e4f9993e7b8cd776f90a44254ab8cf2fc0cb5638317573b9/aiointercept-0.1.9.tar.gz", hash = "sha256:4f1996e0d4dc69024f48a408a4c9749e42821022241bc722203c3c84144d44f2", size = 164044, upload-time = "2026-07-08T19:32:10.366Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/71/55/4c77cda7e69c1ac81a32e6895a361e0da9350eb7835a2ddb161a37ef1ce9/aioresponses-0.7.9-py2.py3-none-any.whl", hash = "sha256:94f9617f841c5bd7ee088ed783284f2cf4e6acc85d3933d92fc2fc7bd572a1b0", size = 12832, upload-time = "2026-06-23T21:23:22.426Z" },
+    { url = "https://files.pythonhosted.org/packages/63/6e/c6d8fe7160f2a97d313d1a86b6d90575d44d4017dbd5065f9843ac88de6d/aiointercept-0.1.9-py3-none-any.whl", hash = "sha256:ef89ea659e3c6aded2140cf4b66dd1ce2ceb4c3ada4f5df27696d613a1fc175c", size = 19486, upload-time = "2026-07-08T19:32:09.148Z" },
 ]
 
 [[package]]
@@ -110,7 +111,7 @@ cli = [
 
 [package.dev-dependencies]
 dev = [
-    { name = "aioresponses" },
+    { name = "aiointercept" },
     { name = "codespell" },
     { name = "copier" },
     { name = "prek" },
@@ -135,7 +136,7 @@ provides-extras = ["cli"]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "aioresponses", specifier = "==0.7.9" },
+    { name = "aiointercept", specifier = "==0.1.9" },
     { name = "codespell", specifier = "==2.4.3" },
     { name = "copier", specifier = "==9.17.0" },
     { name = "prek", specifier = ">=0.3.11" },

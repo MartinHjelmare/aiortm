@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 
-from aioresponses import aioresponses
+from aiointercept import aiointercept
 import pytest
 
 from aiortm.client import AioRTMClient
@@ -32,7 +32,7 @@ def check_token_fixture() -> str:
 
 async def test_authenticate_desktop(
     client: AioRTMClient,
-    mock_response: aioresponses,
+    mock_response: aiointercept,
     get_frob: str,
     generate_url: Callable[..., str],
 ) -> None:
@@ -57,7 +57,7 @@ async def test_authenticate_desktop(
 
 async def test_get_token(
     client: AioRTMClient,
-    mock_response: aioresponses,
+    mock_response: aiointercept,
     get_token: str,
     generate_url: Callable[..., str],
 ) -> None:
@@ -82,7 +82,7 @@ async def test_get_token(
 
 async def test_check_token(
     client: AioRTMClient,
-    mock_response: aioresponses,
+    mock_response: aiointercept,
     check_token: str,
     generate_url: Callable[..., str],
 ) -> None:
