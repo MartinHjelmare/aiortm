@@ -122,6 +122,7 @@ dev = [
     { name = "ruff" },
     { name = "sybil", extra = ["pytest"] },
     { name = "ty" },
+    { name = "typer" },
 ]
 
 [package.metadata]
@@ -147,6 +148,7 @@ dev = [
     { name = "ruff", specifier = "==0.16.0" },
     { name = "sybil", extras = ["pytest"], specifier = "==10.1.0" },
     { name = "ty", specifier = "==0.0.64" },
+    { name = "typer", specifier = ">=0.15,<1" },
 ]
 
 [[package]]
