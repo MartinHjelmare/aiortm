@@ -58,6 +58,7 @@ lint.select = [
   "ALL", # all rules
 ]
 lint.ignore = [
+  "CPY001",  # missing-copyright-notice
   "D203",    # 1 blank line required before class docstring
   "D213",    # Multi-line docstring summary should start at the second line
   "EM101",   # raw-string-in-exception
@@ -70,14 +71,16 @@ lint.ignore = [
   "TRY003",  # raise-vanilla-args
 ]
 lint.per-file-ignores."tests/**/*" = [
-  "PT004",  # pytest-missing-fixture-name-underscore
+  "PLR0917", # too-many-positional-arguments
+  "PT004",   # pytest-missing-fixture-name-underscore
   "S101",
-  "S105",   # hardcoded-password-string
-  "S106",   # hardcoded-password-func-arg
-  "SLF001", # private-member-access
+  "S105",    # hardcoded-password-string
+  "S106",    # hardcoded-password-func-arg
+  "SLF001",  # private-member-access
 ]
 lint.isort.force-sort-within-sections = true
 lint.isort.known-first-party = [ "aiortm", "tests" ]
+lint.pylint.max-positional-args = 7
 
 [tool.pyproject-fmt]
 keep_full_version = true
