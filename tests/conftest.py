@@ -1,11 +1,11 @@
 """Provide common pytest fixtures."""
 
-from collections.abc import AsyncGenerator, Callable, Generator
+from collections.abc import AsyncGenerator, Callable
 import logging
 from typing import Any
 
 from aiohttp import ClientSession
-from aioresponses import aioresponses
+from aiointercept import aiointercept
 import pytest
 from yarl import URL
 
@@ -21,9 +21,9 @@ def debug_logging(caplog: pytest.LogCaptureFixture) -> None:
 
 
 @pytest.fixture
-def mock_response() -> Generator[aioresponses]:
+async def mock_response() -> AsyncGenerator[aiointercept]:
     """Provide a mocker for aiohttp responses."""
-    with aioresponses() as mock_response_:
+    async with aiointercept(mock_external_urls=True) as mock_response_:
         yield mock_response_
 
 

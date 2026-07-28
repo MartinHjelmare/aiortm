@@ -6,7 +6,7 @@ from collections.abc import Callable
 from datetime import datetime
 from typing import Any
 
-from aioresponses import aioresponses
+from aiointercept import aiointercept
 import pytest
 
 from aiortm.client import AioRTMClient
@@ -33,7 +33,7 @@ def response_fixture(request: pytest.FixtureRequest) -> str:
 
 async def test_tasks_add(
     client: AioRTMClient,
-    mock_response: aioresponses,
+    mock_response: aiointercept,
     tasks_add: str,
     timelines_create: str,
     generate_url: Callable[..., str],
@@ -103,7 +103,7 @@ async def test_tasks_add(
 )
 async def test_tasks_complete_delete(
     client: AioRTMClient,
-    mock_response: aioresponses,
+    mock_response: aiointercept,
     timelines_create: str,
     generate_url: Callable[..., str],
     method: str,
@@ -182,7 +182,7 @@ async def test_tasks_complete_delete(
 )
 async def test_tasks_get_list(
     client: AioRTMClient,
-    mock_response: aioresponses,
+    mock_response: aiointercept,
     generate_url: Callable[..., str],
     response: str,
     response_params: dict[str, Any],
@@ -223,7 +223,7 @@ async def test_tasks_get_list(
 
 async def test_tasks_set_name(
     client: AioRTMClient,
-    mock_response: aioresponses,
+    mock_response: aiointercept,
     timelines_create: str,
     generate_url: Callable[..., str],
     tasks_set_name: str,

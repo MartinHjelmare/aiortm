@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from typing import Any
 
-from aioresponses import aioresponses
+from aiointercept import aiointercept
 import pytest
 
 from aiortm.client import AioRTMClient
@@ -51,7 +51,7 @@ def contacts_delete_invalid_contact_id_fixture() -> str:
 
 async def test_contacts_add(
     client: AioRTMClient,
-    mock_response: aioresponses,
+    mock_response: aiointercept,
     contacts_add: str,
     timelines_create: str,
     generate_url: Callable[..., str],
@@ -93,7 +93,7 @@ async def test_contacts_add(
 
 async def test_contacts_add_contact_not_exist(
     client: AioRTMClient,
-    mock_response: aioresponses,
+    mock_response: aiointercept,
     contacts_add_not_exist: str,
     timelines_create: str,
     generate_url: Callable[..., str],
@@ -129,7 +129,7 @@ async def test_contacts_add_contact_not_exist(
 
 async def test_contacts_get_list(
     client: AioRTMClient,
-    mock_response: aioresponses,
+    mock_response: aiointercept,
     contacts_get_list: str,
     generate_url: Callable[..., str],
 ) -> None:
@@ -153,7 +153,7 @@ async def test_contacts_get_list(
 
 async def test_contacts_get_list_no_contacts(
     client: AioRTMClient,
-    mock_response: aioresponses,
+    mock_response: aiointercept,
     contacts_get_list_no_contacts: str,
     generate_url: Callable[..., str],
 ) -> None:
@@ -175,7 +175,7 @@ async def test_contacts_get_list_no_contacts(
 
 async def test_contacts_delete(
     client: AioRTMClient,
-    mock_response: aioresponses,
+    mock_response: aiointercept,
     contacts_delete: str,
     timelines_create: str,
     generate_url: Callable[..., str],
@@ -214,7 +214,7 @@ async def test_contacts_delete(
 
 async def test_contacts_delete_invalid_contact_id(
     client: AioRTMClient,
-    mock_response: aioresponses,
+    mock_response: aiointercept,
     contacts_delete_invalid_contact_id: str,
     timelines_create: str,
     generate_url: Callable[..., str],
@@ -254,7 +254,7 @@ async def test_contacts_delete_invalid_contact_id(
 )
 async def test_contacts_invalid_timeline(
     client: AioRTMClient,
-    mock_response: aioresponses,
+    mock_response: aiointercept,
     timelines_create: str,
     timelines_invalid: str,
     generate_url: Callable[..., str],
