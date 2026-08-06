@@ -156,6 +156,24 @@ class Tasks:
         )
         return TaskModifiedResponse.from_dict(result)
 
+    async def uncomplete(
+        self,
+        *,
+        timeline: int,
+        list_id: int,
+        taskseries_id: int,
+        task_id: int,
+    ) -> TaskModifiedResponse:
+        """Uncomplete a task."""
+        result = await self.api.call_api_auth(
+            "rtm.tasks.uncomplete",
+            timeline=timeline,
+            list_id=list_id,
+            taskseries_id=taskseries_id,
+            task_id=task_id,
+        )
+        return TaskModifiedResponse.from_dict(result)
+
     async def delete(
         self,
         *,

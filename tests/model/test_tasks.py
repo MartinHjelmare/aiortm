@@ -82,26 +82,36 @@ async def test_tasks_add(
 
 
 @pytest.mark.parametrize(
-    ("method", "transaction", "modified", "deleted", "response"),
+    ("method", "transaction", "modified", "completed", "deleted", "response"),
     [
         (
             "complete",
             12475899884,
             datetime.fromisoformat("2023-01-05T00:04:52+00:00"),
+            datetime.fromisoformat("2023-01-05T00:04:52+00:00"),
             None,
             "tasks/complete.json",
+        ),
+        (
+            "uncomplete",
+            12475899885,
+            datetime.fromisoformat("2023-01-05T01:00:00+00:00"),
+            None,
+            None,
+            "tasks/uncomplete.json",
         ),
         (
             "delete",
             12476056249,
             datetime.fromisoformat("2023-01-05T00:34:45+00:00"),
+            datetime.fromisoformat("2023-01-05T00:04:52+00:00"),
             datetime.fromisoformat("2023-01-05T00:34:45+00:00"),
             "tasks/delete.json",
         ),
     ],
     indirect=["response"],
 )
-async def test_tasks_complete_delete(
+async def test_tasks_complete_uncomplete_delete(
     client: AioRTMClient,
     mock_response: aiointercept,
     timelines_create: str,
@@ -109,10 +119,11 @@ async def test_tasks_complete_delete(
     method: str,
     transaction: int,
     modified: datetime,
+    completed: datetime | None,
     deleted: datetime | None,
     response: str,
 ) -> None:
-    """Test tasks complete and delete."""
+    """Test tasks complete, uncomplete and delete."""
     mock_response.get(
         generate_url(
             api_key="test-api-key",
@@ -156,9 +167,7 @@ async def test_tasks_complete_delete(
     assert result.task_list.taskseries[0].name == "Test task"
     assert result.task_list.taskseries[0].source == "api:test-api-key"
     assert result.task_list.taskseries[0].task[0].id == 924832826
-    assert result.task_list.taskseries[0].task[0].completed == datetime.fromisoformat(
-        "2023-01-05T00:04:52+00:00",
-    )
+    assert result.task_list.taskseries[0].task[0].completed == completed
     assert result.task_list.taskseries[0].task[0].deleted == deleted
 
 
