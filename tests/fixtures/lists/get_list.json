@@ -1,0 +1,28 @@
+{
+  "rsp": {
+    "stat": "ok",
+    "lists": {
+      "list": [
+        {
+          "id": "1",
+          "name": "Inbox",
+          "deleted": "0",
+          "locked": "1",
+          "archived": "0",
+          "position": "-1",
+          "smart": "0"
+        },
+        {
+          "id": "2",
+          "name": "High Priority",
+          "deleted": "0",
+          "locked": "0",
+          "archived": "0",
+          "position": "0",
+          "smart": "1",
+          "filter": "(priority:1)"
+        }
+      ]
+    }
+  }
+}
