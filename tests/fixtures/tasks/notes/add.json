@@ -1,0 +1,13 @@
+{
+  "rsp": {
+    "stat": "ok",
+    "transaction": { "id": "12600000001", "undoable": "1" },
+    "note": {
+      "id": "118703500",
+      "created": "2026-08-06T19:18:14Z",
+      "modified": "2026-08-06T19:18:14Z",
+      "title": "My Note",
+      "$t": "Note body text."
+    }
+  }
+}
