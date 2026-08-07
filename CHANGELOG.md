@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.13.0 (2026-08-07)
+
+### Features
+
+- Add cli credentials file ([#195](https://github.com/MartinHjelmare/aiortm/pull/195),
+  [`4721fb4`](https://github.com/MartinHjelmare/aiortm/commit/4721fb4cba6a0383448f825a1e3dcd1892658b34))
+
+
 ## v0.12.0 (2026-03-06)
 
 ### Chores
