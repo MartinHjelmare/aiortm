@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.15.0 (2026-08-08)
+
+### Features
+
+- Add tasks.uncomplete method ([#198](https://github.com/MartinHjelmare/aiortm/pull/198),
+  [`273457e`](https://github.com/MartinHjelmare/aiortm/commit/273457eb4c95663bf0d16f4ee2a3b31c52807362))
+
+
 ## v0.14.0 (2026-08-08)
 
 ### Features
