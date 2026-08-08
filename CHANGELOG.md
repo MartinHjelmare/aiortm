@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.14.0 (2026-08-08)
+
+### Features
+
+- Add rtm.lists model with get_list and add methods
+  ([#197](https://github.com/MartinHjelmare/aiortm/pull/197),
+  [`8af1c35`](https://github.com/MartinHjelmare/aiortm/commit/8af1c355ce23c87e926d69d27bf2d184a049183e))
+
+
 ## v0.13.0 (2026-08-07)
 
 ### Features
