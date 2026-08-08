@@ -192,6 +192,40 @@ class Tasks:
         )
         return TaskModifiedResponse.from_dict(result)
 
+    async def set_due_date(
+        self,
+        *,
+        timeline: int,
+        list_id: int,
+        taskseries_id: int,
+        task_id: int,
+        due: datetime | str | None = None,
+        has_due_time: bool | None = None,
+        parse: bool | None = None,
+    ) -> TaskModifiedResponse:
+        """Set or clear the due date of a task.
+
+        Pass a datetime or ISO-8601 string for *due* to set a due date.
+        Omit *due* (leave as None) to clear it.
+        Set *parse* to True to let RTM interpret a natural-language string.
+        """
+        due_string: str | None = None
+        if isinstance(due, datetime):
+            due_string = due.isoformat()
+        elif isinstance(due, str):
+            due_string = due
+        result = await self.api.call_api_auth(
+            "rtm.tasks.setDueDate",
+            timeline=timeline,
+            list_id=list_id,
+            taskseries_id=taskseries_id,
+            task_id=task_id,
+            due=due_string,
+            has_due_time="1" if has_due_time else None,
+            parse="1" if parse else None,
+        )
+        return TaskModifiedResponse.from_dict(result)
+
     async def get_list(
         self,
         *,

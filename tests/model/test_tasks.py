@@ -287,3 +287,95 @@ async def test_tasks_set_name(
     assert result.task_list.taskseries[0].task[0].added == datetime.fromisoformat(
         "2023-01-05T01:39:14+00:00",
     )
+
+
+@pytest.mark.parametrize(
+    ("response", "response_params", "method_params", "due", "transaction"),
+    [
+        (
+            "tasks/set_due_date.json",
+            {
+                "due": "2023-01-10T14:00:00+00:00",
+                "has_due_time": "1",
+            },
+            {
+                "due": datetime.fromisoformat("2023-01-10T14:00:00+00:00"),
+                "has_due_time": True,
+            },
+            datetime.fromisoformat("2023-01-10T14:00:00+00:00"),
+            12500000001,
+        ),
+        (
+            "tasks/set_due_date.json",
+            {
+                "due": "2023-01-10T14:00:00+00:00",
+                "has_due_time": "1",
+            },
+            {
+                "due": "2023-01-10T14:00:00+00:00",
+                "has_due_time": True,
+            },
+            datetime.fromisoformat("2023-01-10T14:00:00+00:00"),
+            12500000001,
+        ),
+        (
+            "tasks/set_due_date_clear.json",
+            {},
+            {},
+            None,
+            12500000002,
+        ),
+    ],
+    indirect=["response"],
+)
+async def test_tasks_set_due_date(
+    client: AioRTMClient,
+    mock_response: aiointercept,
+    timelines_create: str,
+    generate_url: Callable[..., str],
+    response: str,
+    response_params: dict[str, Any],
+    method_params: dict[str, Any],
+    due: datetime | None,
+    transaction: int,
+) -> None:
+    """Test tasks set due date."""
+    mock_response.get(
+        generate_url(
+            api_key="test-api-key",
+            auth_token="test-token",
+            method="rtm.timelines.create",
+        ),
+        body=timelines_create,
+    )
+    mock_response.get(
+        generate_url(
+            api_key="test-api-key",
+            auth_token="test-token",
+            method="rtm.tasks.setDueDate",
+            timeline=1234567890,
+            list_id=48730705,
+            taskseries_id=493137362,
+            task_id=924832826,
+            **response_params,
+        ),
+        body=response,
+    )
+
+    timeline_response = await client.rtm.timelines.create()
+    timeline = timeline_response.timeline
+    result = await client.rtm.tasks.set_due_date(
+        timeline=timeline,
+        list_id=48730705,
+        taskseries_id=493137362,
+        task_id=924832826,
+        **method_params,
+    )
+
+    assert result.stat == "ok"
+    assert result.transaction.id == transaction
+    assert result.transaction.undoable == 1
+    assert result.task_list.id == 48730705
+    assert result.task_list.taskseries[0].id == 493137362
+    assert result.task_list.taskseries[0].task[0].id == 924832826
+    assert result.task_list.taskseries[0].task[0].due == due
