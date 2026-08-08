@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.16.0 (2026-08-08)
+
+### Features
+
+- Add tasks.set_due_date method ([#199](https://github.com/MartinHjelmare/aiortm/pull/199),
+  [`1d49047`](https://github.com/MartinHjelmare/aiortm/commit/1d490470ff86b3ba7a4a98202d8f25b89cd6825b))
+
+
 ## v0.15.0 (2026-08-08)
 
 ### Features
