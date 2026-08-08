@@ -306,6 +306,19 @@ async def test_tasks_set_name(
             12500000001,
         ),
         (
+            "tasks/set_due_date.json",
+            {
+                "due": "2023-01-10T14:00:00+00:00",
+                "has_due_time": "1",
+            },
+            {
+                "due": "2023-01-10T14:00:00+00:00",
+                "has_due_time": True,
+            },
+            datetime.fromisoformat("2023-01-10T14:00:00+00:00"),
+            12500000001,
+        ),
+        (
             "tasks/set_due_date_clear.json",
             {},
             {},
