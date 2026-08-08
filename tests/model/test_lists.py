@@ -39,6 +39,7 @@ async def test_lists_get_list(
     assert inbox.position == -1
     assert inbox.smart is False
     assert inbox.list_filter is None
+    assert inbox.sort_order is None
 
     high_priority = result.lists[1]
     assert high_priority.id == 2
@@ -49,6 +50,7 @@ async def test_lists_get_list(
     assert high_priority.position == 0
     assert high_priority.smart is True
     assert high_priority.list_filter == "(priority:1)"
+    assert high_priority.sort_order == 0
 
 
 async def test_lists_add(
@@ -92,3 +94,4 @@ async def test_lists_add(
     assert result.added_list.position == 0
     assert result.added_list.smart is False
     assert result.added_list.list_filter is None
+    assert result.added_list.sort_order == 0

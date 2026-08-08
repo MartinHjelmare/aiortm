@@ -20,6 +20,7 @@
           "archived": "0",
           "position": "0",
           "smart": "1",
+          "sort_order": "0",
           "filter": "(priority:1)"
         }
       ]

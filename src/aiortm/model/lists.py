@@ -29,6 +29,9 @@ class ListResponse(DataClassJSONMixin):
         metadata=field_options(alias="filter"),
         default=None,
     )
+    sort_order: int | None = field(
+        default=None,
+    )
 
     @classmethod
     def __pre_deserialize__(cls, d: dict[Any, Any]) -> dict[Any, Any]:
