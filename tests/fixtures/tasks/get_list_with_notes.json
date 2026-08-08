@@ -1,0 +1,57 @@
+{
+  "rsp": {
+    "stat": "ok",
+    "tasks": {
+      "rev": "do4bcfiw180e4zo6c528eqm2auwpmmu",
+      "list": [
+        {
+          "id": "48730707",
+          "taskseries": [
+            {
+              "id": "617871865",
+              "created": "2026-08-06T16:24:16Z",
+              "modified": "2026-08-06T19:18:14Z",
+              "name": "Test 1",
+              "source": "js",
+              "url": "",
+              "location_id": "",
+              "tags": [],
+              "participants": [],
+              "notes": {
+                "note": [
+                  {
+                    "id": "118703500",
+                    "created": "2026-08-06T19:18:14Z",
+                    "modified": "2026-08-06T19:18:14Z",
+                    "title": "",
+                    "$t": "Note 2."
+                  },
+                  {
+                    "id": "118701722",
+                    "created": "2026-08-06T16:24:45Z",
+                    "modified": "2026-08-06T16:24:45Z",
+                    "title": "",
+                    "$t": "Note 1."
+                  }
+                ]
+              },
+              "task": [
+                {
+                  "id": "1221265356",
+                  "due": "",
+                  "has_due_time": "0",
+                  "added": "2026-08-06T16:24:16Z",
+                  "completed": "",
+                  "deleted": "",
+                  "priority": "N",
+                  "postponed": "0",
+                  "estimate": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
