@@ -4,7 +4,7 @@ requires = [ "setuptools>=77.0.3" ]
 
 [project]
 name = "aiortm"
-version = "0.16.0"
+version = "0.17.0"
 description = "Use the Remember the Milk API with aiohttp."
 readme = "README.md"
 license = "Apache-2.0"

@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.17.0 (2026-08-09)
+
+### Features
+
+- Add tasks.notes sub-model and fix notes read model
+  ([#200](https://github.com/MartinHjelmare/aiortm/pull/200),
+  [`cda1a49`](https://github.com/MartinHjelmare/aiortm/commit/cda1a49e519e3479c55273578104e48d72f0cd5b))
+
+
 ## v0.16.0 (2026-08-08)
 
 ### Features
