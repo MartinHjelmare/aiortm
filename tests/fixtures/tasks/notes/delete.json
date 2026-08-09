@@ -1,0 +1,6 @@
+{
+  "rsp": {
+    "stat": "ok",
+    "transaction": { "id": "12600000003", "undoable": "1" }
+  }
+}

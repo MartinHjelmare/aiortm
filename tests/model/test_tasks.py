@@ -379,3 +379,165 @@ async def test_tasks_set_due_date(
     assert result.task_list.taskseries[0].id == 493137362
     assert result.task_list.taskseries[0].task[0].id == 924832826
     assert result.task_list.taskseries[0].task[0].due == due
+
+
+async def test_tasks_get_list_with_notes(
+    client: AioRTMClient,
+    mock_response: aiointercept,
+    generate_url: Callable[..., str],
+) -> None:
+    """Test tasks get list returns parsed notes."""
+    mock_response.get(
+        generate_url(
+            api_key="test-api-key",
+            auth_token="test-token",
+            method="rtm.tasks.getList",
+        ),
+        body=load_fixture("tasks/get_list_with_notes.json"),
+    )
+
+    result = await client.rtm.tasks.get_list()
+
+    assert result.stat == "ok"
+    taskseries = result.tasks.task_list[0].taskseries[0]
+    assert len(taskseries.notes) == 2
+    assert taskseries.notes[0].id == 118703500
+    assert taskseries.notes[0].body == "Note 2."
+    assert taskseries.notes[0].title is None
+    assert taskseries.notes[1].id == 118701722
+    assert taskseries.notes[1].body == "Note 1."
+
+
+async def test_tasks_notes_add(
+    client: AioRTMClient,
+    mock_response: aiointercept,
+    timelines_create: str,
+    generate_url: Callable[..., str],
+) -> None:
+    """Test tasks notes add."""
+    mock_response.get(
+        generate_url(
+            api_key="test-api-key",
+            auth_token="test-token",
+            method="rtm.timelines.create",
+        ),
+        body=timelines_create,
+    )
+    mock_response.get(
+        generate_url(
+            api_key="test-api-key",
+            auth_token="test-token",
+            method="rtm.tasks.notes.add",
+            timeline=1234567890,
+            list_id=48730705,
+            taskseries_id=493137362,
+            task_id=924832826,
+            note_title="My Note",
+            note_text="Note body text.",
+        ),
+        body=load_fixture("tasks/notes/add.json"),
+    )
+
+    timeline_response = await client.rtm.timelines.create()
+    timeline = timeline_response.timeline
+    result = await client.rtm.tasks.notes.add(
+        timeline=timeline,
+        list_id=48730705,
+        taskseries_id=493137362,
+        task_id=924832826,
+        title="My Note",
+        text="Note body text.",
+    )
+
+    assert result.stat == "ok"
+    assert result.transaction.id == 12600000001
+    assert result.transaction.undoable == 1
+    assert result.note.id == 118703500
+    assert result.note.title == "My Note"
+    assert result.note.body == "Note body text."
+    assert result.note.created == datetime.fromisoformat("2026-08-06T19:18:14+00:00")
+    assert result.note.modified == datetime.fromisoformat("2026-08-06T19:18:14+00:00")
+
+
+async def test_tasks_notes_edit(
+    client: AioRTMClient,
+    mock_response: aiointercept,
+    timelines_create: str,
+    generate_url: Callable[..., str],
+) -> None:
+    """Test tasks notes edit."""
+    mock_response.get(
+        generate_url(
+            api_key="test-api-key",
+            auth_token="test-token",
+            method="rtm.timelines.create",
+        ),
+        body=timelines_create,
+    )
+    mock_response.get(
+        generate_url(
+            api_key="test-api-key",
+            auth_token="test-token",
+            method="rtm.tasks.notes.edit",
+            timeline=1234567890,
+            note_id=118703500,
+            note_title="Updated Note",
+            note_text="Updated note body.",
+        ),
+        body=load_fixture("tasks/notes/edit.json"),
+    )
+
+    timeline_response = await client.rtm.timelines.create()
+    timeline = timeline_response.timeline
+    result = await client.rtm.tasks.notes.edit(
+        timeline=timeline,
+        note_id=118703500,
+        title="Updated Note",
+        text="Updated note body.",
+    )
+
+    assert result.stat == "ok"
+    assert result.transaction.id == 12600000002
+    assert result.transaction.undoable == 1
+    assert result.note.id == 118703500
+    assert result.note.title == "Updated Note"
+    assert result.note.body == "Updated note body."
+    assert result.note.modified == datetime.fromisoformat("2026-08-06T20:00:00+00:00")
+
+
+async def test_tasks_notes_delete(
+    client: AioRTMClient,
+    mock_response: aiointercept,
+    timelines_create: str,
+    generate_url: Callable[..., str],
+) -> None:
+    """Test tasks notes delete."""
+    mock_response.get(
+        generate_url(
+            api_key="test-api-key",
+            auth_token="test-token",
+            method="rtm.timelines.create",
+        ),
+        body=timelines_create,
+    )
+    mock_response.get(
+        generate_url(
+            api_key="test-api-key",
+            auth_token="test-token",
+            method="rtm.tasks.notes.delete",
+            timeline=1234567890,
+            note_id=118703500,
+        ),
+        body=load_fixture("tasks/notes/delete.json"),
+    )
+
+    timeline_response = await client.rtm.timelines.create()
+    timeline = timeline_response.timeline
+    result = await client.rtm.tasks.notes.delete(
+        timeline=timeline,
+        note_id=118703500,
+    )
+
+    assert result.stat == "ok"
+    assert result.transaction.id == 12600000003
+    assert result.transaction.undoable == 1

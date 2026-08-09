@@ -33,6 +33,17 @@ class BaseModel(DataClassJSONMixin):
 
 
 @dataclass
+class NoteResponse(BaseModel):
+    """Represent a response for a note."""
+
+    id: int
+    created: datetime = field(metadata={"deserialize": "ciso8601"})
+    modified: datetime = field(metadata={"deserialize": "ciso8601"})
+    title: str | None = None
+    body: str | None = field(metadata=field_options(alias="$t"), default=None)
+
+
+@dataclass
 class TaskResponse(BaseModel):
     """Represent a response for a task."""
 
@@ -64,10 +75,21 @@ class TaskSeriesResponse(BaseModel):
     source: str
     tags: list[str]
     participants: list[str]
-    notes: list[str]
+    notes: list[NoteResponse]
     task: list[TaskResponse]
     location_id: str | None = None
     url: str | None = None
+
+    @classmethod
+    def __pre_deserialize__(cls, d: dict[Any, Any]) -> dict[Any, Any]:
+        """Normalise notes from RTM's dict form to a list."""
+        notes = d.get("notes")
+        if isinstance(notes, dict):
+            d["notes"] = notes.get("note", [])
+            if isinstance(d["notes"], dict):
+                # Single note returned as a dict rather than a one-item list.
+                d["notes"] = [d["notes"]]
+        return super().__pre_deserialize__(d)
 
 
 @dataclass
@@ -100,6 +122,21 @@ class RootTaskResponse(BaseModel):
 
 
 @dataclass
+class NoteModifiedResponse(BaseResponse):
+    """Represent a response for an added or edited note."""
+
+    transaction: TransactionResponse
+    note: NoteResponse
+
+
+@dataclass
+class NoteDeleteResponse(BaseResponse):
+    """Represent a response for a deleted note."""
+
+    transaction: TransactionResponse
+
+
+@dataclass
 class TaskModifiedResponse(BaseResponse):
     """Represent a response for a modified task."""
 
@@ -115,10 +152,76 @@ class TasksResponse(BaseResponse):
 
 
 @dataclass
+class Notes:
+    """Represent the task notes model."""
+
+    api: Auth
+
+    async def add(
+        self,
+        *,
+        timeline: int,
+        list_id: int,
+        taskseries_id: int,
+        task_id: int,
+        title: str,
+        text: str,
+    ) -> NoteModifiedResponse:
+        """Add a note to a task."""
+        result = await self.api.call_api_auth(
+            "rtm.tasks.notes.add",
+            timeline=timeline,
+            list_id=list_id,
+            taskseries_id=taskseries_id,
+            task_id=task_id,
+            note_title=title,
+            note_text=text,
+        )
+        return NoteModifiedResponse.from_dict(result)
+
+    async def edit(
+        self,
+        *,
+        timeline: int,
+        note_id: int,
+        title: str,
+        text: str,
+    ) -> NoteModifiedResponse:
+        """Edit a note."""
+        result = await self.api.call_api_auth(
+            "rtm.tasks.notes.edit",
+            timeline=timeline,
+            note_id=note_id,
+            note_title=title,
+            note_text=text,
+        )
+        return NoteModifiedResponse.from_dict(result)
+
+    async def delete(
+        self,
+        *,
+        timeline: int,
+        note_id: int,
+    ) -> NoteDeleteResponse:
+        """Delete a note."""
+        result = await self.api.call_api_auth(
+            "rtm.tasks.notes.delete",
+            timeline=timeline,
+            note_id=note_id,
+        )
+        return NoteDeleteResponse.from_dict(result)
+
+
+@dataclass
 class Tasks:
     """Represent the tasks model."""
 
     api: Auth
+    notes: Notes = field(init=False)
+
+    def __post_init__(self) -> None:
+        """Set up the instance."""
+        self.notes = Notes(self.api)
 
     async def add(
         self,
