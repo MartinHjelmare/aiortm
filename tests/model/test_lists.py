@@ -144,3 +144,47 @@ async def test_lists_set_name(
     assert result.list.smart is False
     assert result.list.list_filter is None
     assert result.list.sort_order == 0
+
+
+async def test_lists_delete(
+    client: AioRTMClient,
+    mock_response: aiointercept,
+    timelines_create: str,
+    generate_url: Callable[..., str],
+) -> None:
+    """Test lists delete."""
+    mock_response.get(
+        generate_url(
+            api_key="test-api-key",
+            auth_token="test-token",
+            method="rtm.timelines.create",
+        ),
+        body=timelines_create,
+    )
+    mock_response.get(
+        generate_url(
+            api_key="test-api-key",
+            auth_token="test-token",
+            method="rtm.lists.delete",
+            timeline=1234567890,
+            list_id=123456789,
+        ),
+        body=load_fixture("lists/delete.json"),
+    )
+
+    timeline_response = await client.rtm.timelines.create()
+    timeline = timeline_response.timeline
+    result = await client.rtm.lists.delete(timeline=timeline, list_id=123456789)
+
+    assert result.stat == "ok"
+    assert result.transaction.id == 987654321
+    assert result.transaction.undoable == 1
+    assert result.list.id == 123456789
+    assert result.list.name == "My List"
+    assert result.list.deleted is True
+    assert result.list.locked is False
+    assert result.list.archived is False
+    assert result.list.position == 0
+    assert result.list.smart is False
+    assert result.list.list_filter is None
+    assert result.list.sort_order == 0

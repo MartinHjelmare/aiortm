@@ -103,3 +103,12 @@ class Lists:
             name=name,
         )
         return ListActionResponse.from_dict(result)
+
+    async def delete(self, *, timeline: int, list_id: int) -> ListActionResponse:
+        """Delete a list."""
+        result = await self.api.call_api_auth(
+            "rtm.lists.delete",
+            timeline=timeline,
+            list_id=list_id,
+        )
+        return ListActionResponse.from_dict(result)
