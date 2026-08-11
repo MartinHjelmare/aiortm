@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.19.0 (2026-08-11)
+
+### Features
+
+- Add lists.delete method ([#202](https://github.com/MartinHjelmare/aiortm/pull/202),
+  [`ff34db3`](https://github.com/MartinHjelmare/aiortm/commit/ff34db30ac40a9152a508bef865c8370359e82b7))
+
+
 ## v0.18.0 (2026-08-11)
 
 ### Features
