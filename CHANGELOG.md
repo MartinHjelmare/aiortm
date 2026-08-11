@@ -2,6 +2,18 @@
 
 <!-- version list -->
 
+## v0.18.0 (2026-08-11)
+
+### Features
+
+- Add lists.set_name method ([#201](https://github.com/MartinHjelmare/aiortm/pull/201),
+  [`d745dcf`](https://github.com/MartinHjelmare/aiortm/commit/d745dcf6549339d1d9ade1056e12e3630af23fdd))
+
+### Breaking Changes
+
+- Replace ListAddResponse with ListActionResponse.
+
+
 ## v0.17.0 (2026-08-09)
 
 ### Features
