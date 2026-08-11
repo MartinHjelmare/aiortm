@@ -61,11 +61,11 @@ class ListsResponse(BaseResponse):
 
 
 @dataclass
-class ListAddResponse(BaseResponse):
-    """Represent a response for add list."""
+class ListActionResponse(BaseResponse):
+    """Represent a response for a list action."""
 
     transaction: TransactionResponse
-    added_list: ListResponse = field(metadata=field_options(alias="list"))
+    list: ListResponse
 
 
 @dataclass
@@ -79,11 +79,27 @@ class Lists:
         result = await self.api.call_api_auth("rtm.lists.getList")
         return ListsResponse.from_dict(result)
 
-    async def add(self, *, timeline: int, name: str) -> ListAddResponse:
+    async def add(self, *, timeline: int, name: str) -> ListActionResponse:
         """Add a list."""
         result = await self.api.call_api_auth(
             "rtm.lists.add",
             timeline=timeline,
             name=name,
         )
-        return ListAddResponse.from_dict(result)
+        return ListActionResponse.from_dict(result)
+
+    async def set_name(
+        self,
+        *,
+        timeline: int,
+        list_id: int,
+        name: str,
+    ) -> ListActionResponse:
+        """Rename a list."""
+        result = await self.api.call_api_auth(
+            "rtm.lists.setName",
+            timeline=timeline,
+            list_id=list_id,
+            name=name,
+        )
+        return ListActionResponse.from_dict(result)
