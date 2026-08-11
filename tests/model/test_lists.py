@@ -86,12 +86,61 @@ async def test_lists_add(
     assert result.stat == "ok"
     assert result.transaction.id == 987654321
     assert result.transaction.undoable == 1
-    assert result.added_list.id == 123456789
-    assert result.added_list.name == "New List"
-    assert result.added_list.deleted is False
-    assert result.added_list.locked is False
-    assert result.added_list.archived is False
-    assert result.added_list.position == 0
-    assert result.added_list.smart is False
-    assert result.added_list.list_filter is None
-    assert result.added_list.sort_order == 0
+    assert result.list.id == 123456789
+    assert result.list.name == "New List"
+    assert result.list.deleted is False
+    assert result.list.locked is False
+    assert result.list.archived is False
+    assert result.list.position == 0
+    assert result.list.smart is False
+    assert result.list.list_filter is None
+    assert result.list.sort_order == 0
+
+
+async def test_lists_set_name(
+    client: AioRTMClient,
+    mock_response: aiointercept,
+    timelines_create: str,
+    generate_url: Callable[..., str],
+) -> None:
+    """Test lists set name."""
+    mock_response.get(
+        generate_url(
+            api_key="test-api-key",
+            auth_token="test-token",
+            method="rtm.timelines.create",
+        ),
+        body=timelines_create,
+    )
+    mock_response.get(
+        generate_url(
+            api_key="test-api-key",
+            auth_token="test-token",
+            method="rtm.lists.setName",
+            timeline=1234567890,
+            list_id=123456789,
+            name="Renamed List",
+        ),
+        body=load_fixture("lists/set_name.json"),
+    )
+
+    timeline_response = await client.rtm.timelines.create()
+    timeline = timeline_response.timeline
+    result = await client.rtm.lists.set_name(
+        timeline=timeline,
+        list_id=123456789,
+        name="Renamed List",
+    )
+
+    assert result.stat == "ok"
+    assert result.transaction.id == 987654321
+    assert result.transaction.undoable == 1
+    assert result.list.id == 123456789
+    assert result.list.name == "Renamed List"
+    assert result.list.deleted is False
+    assert result.list.locked is False
+    assert result.list.archived is False
+    assert result.list.position == 0
+    assert result.list.smart is False
+    assert result.list.list_filter is None
+    assert result.list.sort_order == 0
