@@ -2,11 +2,20 @@
 
 from typing import Any
 
-from aiohttp import ClientResponseError
+from aiohttp import ClientError, ClientResponseError
 
 
 class AioRTMError(Exception):
     """Represent an exception raised by aiortm."""
+
+
+class TransportError(AioRTMError):
+    """Represent a transport error."""
+
+    def __init__(self, client_error: ClientError, *args: Any) -> None:  # noqa: ANN401
+        """Set up the instance."""
+        super().__init__(client_error, *args)
+        self.client_error = client_error
 
 
 class ResponseError(AioRTMError):
@@ -27,8 +36,10 @@ class APIResponseError(ResponseError):
         self.msg = msg
 
 
-class TransportResponseError(ResponseError):
+class TransportResponseError(TransportError, ResponseError):
     """Represent a bad response."""
+
+    client_error: ClientResponseError
 
     def __init__(self, client_error: ClientResponseError, *args: Any) -> None:  # noqa: ANN401
         """Set up the instance."""
