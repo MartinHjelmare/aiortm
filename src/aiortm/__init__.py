@@ -8,6 +8,7 @@ from .exceptions import (
     AuthError,
     ResponseError,
     TransportAuthError,
+    TransportError,
     TransportResponseError,
 )
 
@@ -22,5 +23,6 @@ __all__ = [
     "AuthError",
     "ResponseError",
     "TransportAuthError",
+    "TransportError",
     "TransportResponseError",
 ]

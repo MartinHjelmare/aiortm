@@ -8,13 +8,14 @@ import json
 import logging
 from typing import Any, cast
 
-from aiohttp import ClientResponse, ClientResponseError, ClientSession
+from aiohttp import ClientError, ClientResponse, ClientResponseError, ClientSession
 from yarl import URL
 
 from .exceptions import (
     APIAuthError,
     APIResponseError,
     TransportAuthError,
+    TransportError,
     TransportResponseError,
 )
 from .model import RTM
@@ -104,16 +105,16 @@ class Auth:
         params = {key: value for key, value in params.items() if value is not None}
         all_params = {"method": api_method} | params | {"format": "json"}
         all_params |= {"api_sig": self._sign_request(all_params)}
-        response = await self.request(REST_URL, params=all_params)
-
         try:
+            response = await self.request(REST_URL, params=all_params)
             response.raise_for_status()
+            response_text = await response.text()
         except ClientResponseError as err:
             if err.status in (HTTPStatus.FORBIDDEN, HTTPStatus.UNAUTHORIZED):
                 raise TransportAuthError(err) from err
             raise TransportResponseError(err) from err
-
-        response_text = await response.text()
+        except ClientError as err:
+            raise TransportError(err) from err
 
         if "rtm.auth" not in api_method:
             logged_response_text = response_text
