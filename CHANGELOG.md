@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v0.20.0 (2026-08-13)
+
+### Features
+
+- Improve aiohttp error handling ([#204](https://github.com/MartinHjelmare/aiortm/pull/204),
+  [`cb17e28`](https://github.com/MartinHjelmare/aiortm/commit/cb17e28e0be4a95b12ff825b864b5533b8a73eb6))
+
+
 ## v0.19.0 (2026-08-11)
 
 ### Features
