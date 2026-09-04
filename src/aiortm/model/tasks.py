@@ -26,7 +26,10 @@ class BaseModel(DataClassJSONMixin):
             if v == "":
                 d[k] = None
             elif isinstance(v, list):
-                d[k] = [cls.__pre_deserialize__(i) for i in v]
+                d[k] = [
+                    cls.__pre_deserialize__(i) if isinstance(i, dict) else i
+                    for i in v
+                ]
             elif isinstance(v, dict):
                 d[k] = cls.__pre_deserialize__(v)
         return d
@@ -82,13 +85,21 @@ class TaskSeriesResponse(BaseModel):
 
     @classmethod
     def __pre_deserialize__(cls, d: dict[Any, Any]) -> dict[Any, Any]:
-        """Normalise notes from RTM's dict form to a list."""
+        """Normalise notes/tags/participants from RTM's dict form to a list."""
         notes = d.get("notes")
         if isinstance(notes, dict):
             d["notes"] = notes.get("note", [])
             if isinstance(d["notes"], dict):
                 # Single note returned as a dict rather than a one-item list.
                 d["notes"] = [d["notes"]]
+        tags = d.get("tags")
+        if isinstance(tags, dict):
+            d["tags"] = tags.get("tag", [])
+        participants = d.get("participants")
+        if isinstance(participants, dict):
+            d["participants"] = [
+                c.get("username", "") for c in participants.get("contact", [])
+            ]
         return super().__pre_deserialize__(d)
 
 
