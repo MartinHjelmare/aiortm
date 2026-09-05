@@ -1,0 +1,50 @@
+{
+  "rsp": {
+    "stat": "ok",
+    "tasks": {
+      "rev": "do4bcfiw180e4zo6c528eqm2auwpmmu",
+      "list": [
+        {
+          "id": "48730707",
+          "taskseries": [
+            {
+              "id": "617871865",
+              "created": "2026-08-06T16:24:16Z",
+              "modified": "2026-08-06T19:18:14Z",
+              "name": "Test 1",
+              "source": "js",
+              "url": "",
+              "location_id": "",
+              "tags": {
+                "tag": ["shopping", "urgent"]
+              },
+              "participants": {
+                "contact": [
+                  {
+                    "id": "720095",
+                    "fullname": "Test Contact",
+                    "username": "testuser"
+                  }
+                ]
+              },
+              "notes": [],
+              "task": [
+                {
+                  "id": "1221265356",
+                  "due": "",
+                  "has_due_time": "0",
+                  "added": "2026-08-06T16:24:16Z",
+                  "completed": "",
+                  "deleted": "",
+                  "priority": "N",
+                  "postponed": "0",
+                  "estimate": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

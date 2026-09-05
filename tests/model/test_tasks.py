@@ -408,6 +408,29 @@ async def test_tasks_get_list_with_notes(
     assert taskseries.notes[1].body == "Note 1."
 
 
+async def test_tasks_get_list_with_tags_and_participants(
+    client: AioRTMClient,
+    mock_response: aiointercept,
+    generate_url: Callable[..., str],
+) -> None:
+    """Test tasks get list returns parsed tags and participants."""
+    mock_response.get(
+        generate_url(
+            api_key="test-api-key",
+            auth_token="test-token",
+            method="rtm.tasks.getList",
+        ),
+        body=load_fixture("tasks/get_list_with_tags_and_participants.json"),
+    )
+
+    result = await client.rtm.tasks.get_list()
+
+    assert result.stat == "ok"
+    taskseries = result.tasks.task_list[0].taskseries[0]
+    assert taskseries.tags == ["shopping", "urgent"]
+    assert taskseries.participants == ["testuser"]
+
+
 async def test_tasks_notes_add(
     client: AioRTMClient,
     mock_response: aiointercept,
