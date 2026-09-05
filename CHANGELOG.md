@@ -2,6 +2,15 @@
 
 <!-- version list -->
 
+## v0.20.1 (2026-09-05)
+
+### Bug Fixes
+
+- Handle tags/participants deserialization for non-empty values
+  ([#216](https://github.com/MartinHjelmare/aiortm/pull/216),
+  [`721898a`](https://github.com/MartinHjelmare/aiortm/commit/721898a86f121c356f377bbffbf8d6a5bab74806))
+
+
 ## v0.20.0 (2026-08-13)
 
 ### Features
