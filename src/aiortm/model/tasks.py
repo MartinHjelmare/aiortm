@@ -27,8 +27,7 @@ class BaseModel(DataClassJSONMixin):
                 d[k] = None
             elif isinstance(v, list):
                 d[k] = [
-                    cls.__pre_deserialize__(i) if isinstance(i, dict) else i
-                    for i in v
+                    cls.__pre_deserialize__(i) if isinstance(i, dict) else i for i in v
                 ]
             elif isinstance(v, dict):
                 d[k] = cls.__pre_deserialize__(v)
