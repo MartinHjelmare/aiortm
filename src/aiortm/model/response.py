@@ -1,16 +1,18 @@
 """Provide a base response model."""
 
 from dataclasses import dataclass
-from typing import Literal
+from typing import Generic, Literal, TypeVar
 
 from mashumaro.mixins.json import DataClassJSONMixin
 
+StatT = TypeVar("StatT", bound=Literal["ok", "fail"], default=Literal["ok", "fail"])
+
 
 @dataclass
-class BaseResponse(DataClassJSONMixin):
+class BaseResponse(DataClassJSONMixin, Generic[StatT]):
     """Represent a base response."""
 
-    stat: Literal["ok", "fail"]
+    stat: StatT
 
 
 @dataclass
@@ -22,10 +24,9 @@ class ErrorResponse(DataClassJSONMixin):
 
 
 @dataclass
-class BaseErrorResponse(BaseResponse):
+class BaseErrorResponse(BaseResponse[Literal["fail"]]):
     """Represent a base error response."""
 
-    stat: Literal["fail"]
     err: ErrorResponse
 
 
